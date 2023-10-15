@@ -1,7 +1,7 @@
-# jammming
-Codecademy API Portfolio Project
+# Jammming
+## Codecademy API Portfolio Project
 
-+ Purpose of the project
++ Purpose of the project:
   This project is part of the Codecademy's Front-end course where I will practice the knowledge I've acquired so far, such as: HTML, CSS, JavaScript, React, HTTP Requests and Responses and Authentication.
 + Technologies used
 + Features (basics)
