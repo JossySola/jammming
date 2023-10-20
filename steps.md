@@ -20,11 +20,11 @@ Root
 ```
 ## State Representation
 
-+ Songs data
++ Search data
     - [x] The data changes over time.
     - [x] The data is not passed via props.
     - [x] The data is not computed based on existing state or props.
-+ Search data
++ Songs data
     - [x] The data changes over time.
     - [x] The data is not passed via props.
     - [x] The data is not computed based on existing state or props.
