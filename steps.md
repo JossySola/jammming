@@ -3,19 +3,22 @@
 ## UI Hierarchy
 ```html
 <!--
+
 Root
 |
-|__ Search
-|       |__ Songs
-|              |__ Add
-|              |__ Remove
-|
-|__ Playlist
-|        |__ Table
-|        |     |__ Songs
-|        |            |__ Remove
-|        |__ Name
-|        |__ Export
+|__ App
+    |__ Search
+    |       |__ Songs
+    |              |__ Add
+    |              |__ Remove
+    |
+    |__ Playlist
+    |        |__ Table
+    |        |     |__ Songs
+    |        |            |__ Remove
+    |        |__ Name
+    |        |__ Export
+
 -->
 ```
 ## State Representation
@@ -36,11 +39,13 @@ Root
 ## State Placement
 ```html
 <!--
+
 + *External JS*
 + `Playlist Reducer`< - - - - - ┐
     + Search Component          |
         + `Search State`        |
             + Songs Component   |
                 + `Songs State` |
+                
 -->
 ```
