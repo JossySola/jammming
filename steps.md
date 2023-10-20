@@ -1,6 +1,7 @@
 # Steps taken
 
 ## UI Hierarchy
+```html
 <!--
 Root
 |
@@ -16,22 +17,24 @@ Root
 |        |__ Name
 |        |__ Export
 -->
+```
 ## State Representation
 
 + Songs data
-[x] The data changes over time.
-[x] The data is not passed via props.
-[x] The data is not computed based on existing state or props.
+    - [x] The data changes over time.
+    - [x] The data is not passed via props.
+    - [x] The data is not computed based on existing state or props.
 + Search data
-[x] The data changes over time.
-[x] The data is not passed via props.
-[x] The data is not computed based on existing state or props.
+    - [x] The data changes over time.
+    - [x] The data is not passed via props.
+    - [x] The data is not computed based on existing state or props.
 + Playlist data
-[x] The data changes over time.
-[x] The data is not passed via props.
-[x] The data is not computed based on existing state or props.
+    - [x] The data changes over time.
+    - [x] The data is not passed via props.
+    - [x] The data is not computed based on existing state or props.
 
 ## State Placement
+```html
 <!--
 + *External JS*
 + `Playlist Reducer`< - - - - - ┐
@@ -40,3 +43,4 @@ Root
             + Songs Component   |
                 + `Songs State` |
 -->
+```
