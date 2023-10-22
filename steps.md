@@ -67,12 +67,19 @@ Root
 > npm init
 
 > npm install react@latest -g
+
 > npm install react-dom@latest -g
+
 > npm install curl@latest -g
+
 > git clone https://github.com/Microsoft/vcpkg.git
+
 > cd vcpkg
+
 > ./bootstrap-vcpkg.sh
+
 > ./vcpkg integrate install
+
 > vcpkg install curl[tool]
 
 + Create folder named "public"
