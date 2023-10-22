@@ -49,3 +49,13 @@ Root
                 
 -->
 ```
+
+## Conditionals
+
+| **IF** | **THEN** |
+| ------ | -------- |
+| Main is empty | "Start searching for your fav songs!" |
+| Attempt adding a song already in Playlist | "This song is already in your playlist!" |
+| Export without Playlist name | Alert: "Don't forget to name your playlist!" |
+| Attempt exporting without songs | Alert: "Pick some songs first!" |
+| Attempt export without log in Spotify | "Let's log in first!" |
