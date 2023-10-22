@@ -1,4 +1,4 @@
-# Steps taken
+# STEPS TAKEN
 
 ## UI Hierarchy
 ```html
@@ -59,3 +59,41 @@ Root
 | Export without Playlist name | Alert: "Don't forget to name your playlist!" |
 | Attempt exporting without songs | Alert: "Pick some songs first!" |
 | Attempt export without log in Spotify | "Let's log in first!" |
+
+## Packages in local environment
+
+*Project created without npm create-react-app*
+
+> npm init
+
+> npm install react@latest -g
+> npm install react-dom@latest -g
+> npm install curl@latest -g
+> git clone https://github.com/Microsoft/vcpkg.git
+> cd vcpkg
+> ./bootstrap-vcpkg.sh
+> ./vcpkg integrate install
+> vcpkg install curl[tool]
+
++ Create folder named "public"
+    + Create file named "index.html"
+
+> npm install react-scripts@latest -g
+
++ Edit package.json
+```json
+"devDependencies": {
+    "react-scripts": "^5.0.1"
+  },
+"scripts": {
+    "start": "react-scripts start"
+  }
+```
+
++ Create folder named "src"
+    + Create file named "index.js"
+
+*Relative imports outside of src/ are not supported.*
+
+## Connect components and return only JSX in each one
+## Create basic CSS styling to identify elements in a live environment
