@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./containers/search.js";
-import Export from "./containers/components/export.js";
-import Name from "./containers/components/name.js";
+import Playlist from "./containers/playlist.js";
 
 
 export default function App() {
+    const [playlist, setPlaylist] = useState([]);
     return (
         <>
             <main>
-                <Search />
+                <Search playlist={playlist} setPlaylist={setPlaylist}/>
             </main>
-            <section>
-                <Name />
-                <Export />
-            </section>
+            <Playlist playlist={playlist} setPlaylist={setPlaylist}/>
         </>
     )
 }
