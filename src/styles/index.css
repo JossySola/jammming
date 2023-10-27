@@ -2,15 +2,29 @@
     padding: 0.5rem;
     margin: 0.5rem;
 }
+/*-------------------------- SEMANTICS */
 button {
     margin: 15px;
+}
+details {
+    background-color: blue;
+    color: white;
 }
 main {
     background-color: black;
 }
-details {
-    background-color: blue;
-}
 section {
     background-color: aquamarine;
+}
+/*-------------------------------------*/
+
+/*---------------------------- CLASSES */
+.songAuthor {
+
+}
+.songGenre {
+
+}
+.songName {
+    
 }
