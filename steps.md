@@ -104,3 +104,6 @@ Root
 
 ## Connect components and return only JSX in each one
 ## Create basic CSS styling to identify elements in a live environment
+## Setup States/Reducers
+## Setup Event Handlers
+## Setup props
