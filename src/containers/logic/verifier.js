@@ -3,7 +3,7 @@ function generateString(length) {
     const values = crypto.getRandomValues(new Uint8Array(length));
     // Uint8Array [0: 30, 1: 131, 2: 85, 3: 204, 4: 64...]
     return values.reduce((acc, x) => acc + possible[x % possible.length], ""); 
-    //           .reduce(callbackFn                           , initialValue)
+    // .reduce(callbackFn, initialValue)
     // callbackFn = A function to execute for each element in the array.
     // its return value becomes the value of the *accumulator* parameter
     // on the next invocation of callbackFn.
