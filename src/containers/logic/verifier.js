@@ -1,3 +1,9 @@
+/*
+The PKCE authorization flow starts with the creation of a code verifier.
+A code verifier is a high-entropry cryptographic random string with a
+length between 43 and 128 characters.
+*/
+
 function generateString(length) {
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const values = crypto.getRandomValues(new Uint8Array(length));
