@@ -40,7 +40,8 @@ authUrl.search = new URLSearchParams(params).toString();
 try {
     window.location.href = authUrl.toString();
 } catch(e) {
-    console.log(e);
+    console.error(e.message);
+    console.error(e.value);
 }
 // HREF is a stringifier that returns a string containing the whole URL, and allows the href to be updated
 // Setting the value of href navigates to the provided URL
