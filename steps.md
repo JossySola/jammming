@@ -120,6 +120,8 @@ Root
 5. Refresh Token
 6. API Requests
 
+[Authorization Code Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)
+
 ##### Example in Verifier step:
 > Uint8Array [0: 30, 1: 131, 2: 85, 3: 204, 4: 64...]
 > .reduce(callbackFn, initialValue)
