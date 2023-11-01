@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Song from "./song.js";
-import requestAPI from "./logic/request.js";
+import { userAuth } from "./logic/auth.js";
+import accessToken from "./logic/access.js";
 
 export default function Search({playlist, setPlaylist}) {
     const [search, setSearch] = useState("");
-    let data = requestAPI(search);
+
+    let data = "";
     
     const mapping = (arr) => {
         let jsx = [];
@@ -14,12 +16,57 @@ export default function Search({playlist, setPlaylist}) {
         return jsx;
     }
 
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+    }
+    const handleSubmit = async () => {
+        let accToken = localStorage.getItem('access_token');
+
+        if(!accToken) {
+            console.log('Missing access token');
+            accessToken();
+        } else if(accToken) {
+            // Use API
+            // Missing refresh token
+            const str = search;
+            const specialChar = /\W/.test(str);
+            const num = /[0-9]/.test(str);
+
+            if(specialChar || num) {
+                console.log("The string has numbers/symbols.");
+            } else {
+                console.log(window.localStorage)
+                console.log("The session is supposedly granted.");
+            }
+
+        } else {
+            userAuth();
+        }
+    }
+
     return (
         <>
-            <input type="search" onChange={(e) => {
+            <form
+            onSubmit={(e) => {
                 e.preventDefault();
-                setSearch(e.target.value);
-            }} />
+                handleSubmit();
+            }}>
+                <input 
+                type="text"
+                name="search"
+                id="search"
+                maxLength="30"
+                autoComplete="off"
+                required
+                onChange={(e) => {
+                    handleSearch(e);
+                }}
+                />
+                <button
+                type="submit"
+                name="submit"
+                id="submit">Search!</button>
+            </form>
 
             { search ? null : <span>Start searching for your fav songs!</span> }
             { data ? mapping(data) : null }
