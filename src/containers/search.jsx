@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Song from "./song.jsx";
+import getItem from "./logic/request.js";
 import { userAuth } from "./logic/auth.js";
-import accessToken from "./logic/access.js";
 
 export default function Search({playlist, setPlaylist}) {
     const [search, setSearch] = useState("");
-
+    const specialChar = /[^A-Za-z\s]/.test(search);
+    const num = /[0-9]/.test(search);
     let data = "";
     
     const mapping = (arr) => {
@@ -19,28 +20,19 @@ export default function Search({playlist, setPlaylist}) {
     const handleSearch = (e) => {
         setSearch(e.target.value);
     }
+
     const handleSubmit = async () => {
-        let accToken = localStorage.getItem('access_token');
-
-        if(!accToken) {
-            console.log('Missing access token');
-            accessToken();
-        } else if(accToken) {
-            // Use API
-            // Missing refresh token
-            const str = search;
-            const specialChar = /\W/.test(str);
-            const num = /[0-9]/.test(str);
-
-            if(specialChar || num) {
-                console.log("The string has numbers/symbols.");
-            } else {
-                console.log(window.localStorage)
-                console.log("The session is supposedly granted.");
-            }
-
-        } else {
+        if(specialChar || num) {
+            console.error({
+                type: 'String permissions',
+                message: 'The input has numbers/symbols'
+            });
+            return null;
+        } else if(!localStorage.getItem('code') || localStorage.getItem('code') === "null") {
             userAuth();
+        }else {
+            console.log(window.localStorage);
+            getItem(search);
         }
     }
 
@@ -67,8 +59,8 @@ export default function Search({playlist, setPlaylist}) {
                 name="submit"
                 id="submit">Search!</button>
             </form>
-
-            { search ? null : <span>Start searching for your fav songs!</span> }
+            { specialChar || num ? <span style={{color: "white"}}>Numbers and symbols are not allowed</span> : null}
+            { !search ? <span style={{color: "white"}}>Start searching for your fav songs!</span> : null }
             { data ? mapping(data) : null }
         </>
     )
