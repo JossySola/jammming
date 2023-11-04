@@ -1,4 +1,6 @@
 import { clientId, redirectUri } from "./auth.js";
+import getRefreshToken from "./refresh.js";
+import { userAuth } from "./auth.js";
 
 export default function accessToken() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,11 +17,12 @@ export default function accessToken() {
             window.localStorage.removeItem('code');
             window.localStorage.removeItem('refresh_token');
             console.error({
-                message: err
+                type: 'Permissions',
+                message: 'The permissions were not granted.'
             });
             return null;
         } else {
-            const getToken = async () => {
+            const getAccess = async () => {
                 const payload = {
                     method: 'POST',
                     headers: {
@@ -39,7 +42,7 @@ export default function accessToken() {
                 localStorage.setItem('refresh_token', response.refresh_token);
                 return response;
             }
-            getToken();
+            getAccess();
         }
     } else {
         window.localStorage.removeItem('code_verifier');
@@ -51,6 +54,6 @@ export default function accessToken() {
             type: 'Cross-site Request Forgery prevention.',
             message: 'The local state is not the same as the one received from server.'
         });
-        return null;
+        userAuth();
     }
 }
