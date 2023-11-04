@@ -170,3 +170,9 @@ Root
 > After receiving a response, we must then PARSE the URL to retrieve the code (an authorization code that can be exchanged for an access token) parameter PARSE means to analize a sequence/sentence.
 
 > *urlParams.get* retrieves the parameter specified between the parentheses from the URL response.
+
+**Notes on CSRF attacks**
+[Prevent Attacks and Redirect Users](https://auth0.com/docs/secure/attack-protection/state-parameters)
+
+**Notes on HTTP requests**
+[Different ways to make HTTP requests](https://javascript.plainenglish.io/comparing-different-ways-to-make-http-requests-in-javascript-39ab0f090788)
