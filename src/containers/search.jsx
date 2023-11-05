@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Song from "./song.jsx";
 import getItem from "./logic/request.js";
-import { userAuth } from "./logic/auth.js";
 
 export default function Search({playlist, setPlaylist}) {
     const [search, setSearch] = useState("");
@@ -28,10 +27,7 @@ export default function Search({playlist, setPlaylist}) {
                 message: 'The input has numbers/symbols'
             });
             return null;
-        } else if(!localStorage.getItem('code') || localStorage.getItem('code') === "null") {
-            userAuth();
-        }else {
-            console.log(window.localStorage);
+        }  else {
             getItem(search);
         }
     }
