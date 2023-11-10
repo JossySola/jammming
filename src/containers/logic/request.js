@@ -1,5 +1,6 @@
 import { userAuth } from "./auth.js";
 import { setLocalParams } from "./reset.js";
+import alertMsg from "./alert.js";
 
 export default async function getItem(query) {
     const authorization = localStorage.getItem('access_token');
@@ -7,7 +8,7 @@ export default async function getItem(query) {
     const params = new URLSearchParams({
         q: query,
         limit: 15,
-        type: "artist,track"
+        type: "track"
     });
 
     const payload = {
@@ -26,15 +27,17 @@ export default async function getItem(query) {
                 cause: body.status
             })
         } else {
-            console.log(response)
             return response;
         }
     } catch(err) {
+        alertMsg(err.cause);
+
         console.error({
             From: "request",
             err,
             Code: err.cause,
         });
+        
         if(err.cause === 401) {
             window.localStorage.removeItem('access_token');
             window.localStorage.removeItem('code_verifier');
