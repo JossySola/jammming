@@ -20,7 +20,6 @@ export default function App() {
             return;
         } else if(code) {
             accessToken(code, state, verifier);
-            console.log('access granted.')
         }
     }, []);
 
