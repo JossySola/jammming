@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Song from "./song.jsx";
 import getItem from "./logic/request.js";
+import { setLocalParams } from "./logic/reset.js";
+import { userAuth } from "./logic/auth.js";
 
 export default function Search({playlist, setPlaylist}) {
     const [search, setSearch] = useState("");
@@ -21,13 +23,20 @@ export default function Search({playlist, setPlaylist}) {
     }
 
     const handleSubmit = async () => {
+        const verifier = localStorage.getItem('code_verifier');
+        const challenge = localStorage.getItem('code_challenge');
+        const state = localStorage.getItem('state');
+
         if(specialChar || num) {
             console.error({
                 type: 'String permissions',
                 message: 'The input has numbers/symbols'
             });
             return null;
-        }  else {
+        } else if(!verifier || !challenge || !state) {
+            setLocalParams();
+            userAuth(challenge,state);
+        } else {
             getItem(search);
         }
     }
