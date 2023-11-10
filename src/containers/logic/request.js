@@ -34,8 +34,5 @@ export default async function getItem(query) {
             err,
             Code: err.cause,
         });
-        if(err.cause === 401) {
-            userAuth(localStorage.getItem('code_challenge'), localStorage.getItem('state'));
-        }
     }
 }
