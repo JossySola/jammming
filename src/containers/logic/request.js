@@ -17,34 +17,25 @@ export default async function getItem(query) {
     }
 
     try {
-        const response = await fetch(`https://api.spotify.com/v1/search?`+ params.toString(), payload);
+        const body = await fetch(`https://api.spotify.com/v1/search?`+ params.toString(), payload);
+        const response = await body.json();
 
-        if(response.status !== 200) {
-            throw new Error(response.message, {
-                cause: response.status
+        if(body.status !== 200 || response.error) {
+            throw new Error(response.error + " // " +  response.error_description, {
+                cause: body.status
             })
+        } else {
+            console.log(response)
+            return response;
         }
-
-        const data = await response.json();
-        console.log(data)
-        return data;
     } catch(err) {
-        console.log(err + ' ' + err.cause);
+        console.error({
+            From: "request",
+            err,
+            Code: err.cause,
+        });
         if(err.cause === 401) {
-            window.localStorage.removeItem('access_token');
-            window.localStorage.removeItem('code_verifier');
-            window.localStorage.removeItem('code');
-            window.localStorage.removeItem('refresh_token');
-            window.localStorage.removeItem('state');
-        
-            userAuth();
-        } else if(err.cause === 400) {
-            /*
-            window.localStorage.removeItem('access_token');
-            window.localStorage.removeItem('code_verifier');
-            window.localStorage.removeItem('code');
-            window.localStorage.removeItem('refresh_token');
-            window.localStorage.removeItem('state');*/
+            userAuth(localStorage.getItem('code_challenge'), localStorage.getItem('state'));
         }
     }
 }
