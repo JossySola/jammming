@@ -7,7 +7,6 @@ function userAuth(challenge, state) {
 
   localStorage.setItem('code_challenge', challenge);
   localStorage.setItem('state', state);
-  console.log(state)
 
   const params =  {
     response_type: 'code',
