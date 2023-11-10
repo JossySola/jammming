@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25px"
+   height="25px"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscapeVersion="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodiDocname="alert.svg"
+   xmlnsInkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlnsSodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlnsSvg="http://www.w3.org/2000/svg">
+  <sodipodiNamedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscapePageshadow="0"
+     inkscapePageopacity="0"
+     inkscapePagecheckerboard="0"
+     inkscapeDocumentUnits="mm"
+     showgrid="false"
+     inkscapeZoom="23.689562"
+     inkscapeCx="12.389423"
+     inkscapeCy="11.017511"
+     inkscapeWindowWidth="1920"
+     inkscapeWindowHeight="1017"
+     inkscapeWindowX="-8"
+     inkscapeWindowY="-8"
+     inkscapeWindowMaximized="1"
+     inkscapeCurrentLayer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscapeLabel="Layer 1"
+     inkscapeGroupmode="layer"
+     id="layer1">
+    <path
+       id="path880"
+       style="opacity:1;fill:#fc472e;stroke:none"
+       d="M 12.449219 0.16796875 A 12.373737 12.373737 0 0 0 0.13867188 12.583984 A 12.373737 12.373737 0 0 0 12.535156 24.916016 A 12.373737 12.373737 0 0 0 24.886719 12.542969 L 24.886719 12.457031 A 12.373737 12.373737 0 0 0 12.449219 0.16796875 z M 12.353516 1.515625 A 11.026936 11.026936 0 0 1 23.4375 12.464844 L 23.4375 12.542969 A 11.026936 11.026936 0 0 1 12.429688 23.568359 A 11.026936 11.026936 0 0 1 1.3828125 12.580078 A 11.026936 11.026936 0 0 1 12.353516 1.515625 z "
+       transform="matrix(11.88,0,0,11.88,-43.5,0)" />
+    <text
+       xmlSpace="preserve"
+       style="font-size:237.6px;line-height:1.25;font-family:amatic;-inkscape-font-specification:amatic;fill:#fc472e;stroke:none;stroke-width:11.88;stroke-opacity:1"
+       x="54.862335"
+       y="230.34055"
+       id="text26497"
+       inkscapeExportFilename="C:\WEB PROJECTS\appointment_planner\src\alert.png"
+       inkscapeExportXdpi="96"
+       inkscapeExportYdpi="96"><tspan
+         sodipodiRole="line"
+         id="tspan26495"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:237.6px;font-family:amatic;-inkscape-font-specification:'amatic Bold';fill:#fc472e;fill-opacity:1;stroke:none;stroke-width:11.88;stroke-opacity:1"
+         x="54.862335"
+         y="230.34055">!</tspan></text>
+  </g>
+</svg>
