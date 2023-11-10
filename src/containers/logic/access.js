@@ -40,7 +40,7 @@ export default async function accessToken(code, state, verifierParam) {
                 err,
                 Code: err.cause,
             });
-            if(err.cause === 400) {
+            if(err.cause === 401) {
                 window.localStorage.removeItem('access_token');
                 window.localStorage.removeItem('code_verifier');
                 window.localStorage.removeItem('code');
