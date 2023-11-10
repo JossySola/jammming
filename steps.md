@@ -176,3 +176,6 @@ Root
 
 **Notes on HTTP requests**
 [Different ways to make HTTP requests](https://javascript.plainenglish.io/comparing-different-ways-to-make-http-requests-in-javascript-39ab0f090788)
+
+**URL-encoding Reference**
+[HTML URL-encoding Reference](https://www.eso.org/~ndelmott/url_encode.html)
