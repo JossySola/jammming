@@ -1,22 +1,15 @@
 import React, { useState } from "react";
-import Song from "./song.jsx";
 import getItem from "./logic/request.js";
 import { setLocalParams } from "./logic/reset.js";
 import { userAuth } from "./logic/auth.js";
+import Song from "./song.jsx";
 
 export default function Search({playlist, setPlaylist}) {
     const [search, setSearch] = useState("");
+    const [songs, setSongs] = useState();
+
     const specialChar = /[^A-Za-z\s]/.test(search);
     const num = /[0-9]/.test(search);
-    let data = "";
-    
-    const mapping = (arr) => {
-        let jsx = [];
-        for(let obj of arr) {
-            jsx.push(<Song btn="add" obj={obj} setPlaylist={setPlaylist} playlist={playlist} key={obj.id}/>);
-        }
-        return jsx;
-    }
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
@@ -26,6 +19,8 @@ export default function Search({playlist, setPlaylist}) {
         const verifier = localStorage.getItem('code_verifier');
         const challenge = localStorage.getItem('code_challenge');
         const state = localStorage.getItem('state');
+        let tracks = [];
+        let jsx = [];
 
         if(specialChar || num) {
             console.error({
@@ -37,7 +32,23 @@ export default function Search({playlist, setPlaylist}) {
             setLocalParams();
             userAuth(challenge,state);
         } else {
-            getItem(search);
+            const response = await getItem(search);
+            tracks = response.tracks.items;
+            tracks.map((obj) => {
+                jsx.push(<Song 
+                btn="add" 
+                setPlaylist={setPlaylist} 
+                playlist={playlist} 
+                key={obj.id} 
+                id={obj.id}
+                name={obj.name} 
+                uri={obj.uri} 
+                album={obj.album} 
+                artists={obj.artists}
+                preview={obj.preview_url}
+                />);
+            })
+            setSongs(jsx)
         }
     }
 
@@ -64,9 +75,14 @@ export default function Search({playlist, setPlaylist}) {
                 name="submit"
                 id="submit">Search!</button>
             </form>
+
             { specialChar || num ? <span style={{color: "white"}}>Numbers and symbols are not allowed</span> : null}
             { !search ? <span style={{color: "white"}}>Start searching for your fav songs!</span> : null }
-            { data ? mapping(data) : null }
+            { songs && search ? songs.map((el) => {
+                return el
+                }) : null 
+            }
+            
         </>
     )
 }
