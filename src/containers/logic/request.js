@@ -1,4 +1,5 @@
 import { userAuth } from "./auth.js";
+import { setLocalParams } from "./reset.js";
 
 export default async function getItem(query) {
     const authorization = localStorage.getItem('access_token');
@@ -34,5 +35,16 @@ export default async function getItem(query) {
             err,
             Code: err.cause,
         });
+        if(err.cause === 401) {
+            window.localStorage.removeItem('access_token');
+            window.localStorage.removeItem('code_verifier');
+            window.localStorage.removeItem('code');
+            window.localStorage.removeItem('refresh_token');
+            window.localStorage.removeItem('state');
+            setLocalParams();
+            const challenge = localStorage.getItem('code_challenge');
+            const state = localStorage.getItem('state');
+            userAuth(challenge,state);
+        }
     }
 }
