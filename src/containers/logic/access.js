@@ -1,6 +1,7 @@
 import { clientId, redirectUri } from "./auth.js";
 import { setLocalParams } from "./reset.js";
 import { userAuth } from "./auth.js";
+import alertMsg from "./alert.js";
 
 export default async function accessToken(code, state, verifierParam) {
     const localState = localStorage.getItem('state');
@@ -30,16 +31,18 @@ export default async function accessToken(code, state, verifierParam) {
                     cause: body.status
                 })
             } else {
-                console.log(response)
                 localStorage.setItem('access_token', response.access_token);
                 localStorage.setItem('refresh_token', response.refresh_token);
             }
         } catch(err) {
+            alertMsg(err.cause);
+
             console.error({
                 From: "access",
                 err,
                 Code: err.cause,
             });
+
             if(err.cause === 401) {
                 window.localStorage.removeItem('access_token');
                 window.localStorage.removeItem('code_verifier');
