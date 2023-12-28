@@ -1,15 +1,24 @@
 import React from "react";
 
-export default function Add({obj, playlist, setPlaylist}) {
+export default function Add(
+    {
+    id,
+    name,
+    album,
+    artists,
+    preview,
+    playlist,
+    setPlaylist}) {
+
     function handleClick() {
-        if(playlist.length > 0) {
-            for(let x of playlist) {
-                if(obj.id === x.id) {
-                    return false;
-                }
+        setPlaylist((prev) => {
+            const duplicate = prev.find(song => song.id === id);
+
+            if (duplicate) {
+                return [...prev];
             }
-        }
-        setPlaylist([...playlist, obj]);
+            return [...prev, {id,name,album,artists,preview,playlist,setPlaylist}];
+        })
     }
     
     return (

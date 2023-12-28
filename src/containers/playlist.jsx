@@ -4,22 +4,27 @@ import Export from "./components/export.jsx";
 import Song from "./song.jsx";
 
 export default function Playlist({playlist, setPlaylist}) {
+    
     useEffect(() => {
-        renderSongs()
     }, [playlist]);
-
-    function renderSongs() {
-        let jsx = [];
-        for(let obj of playlist) {
-            jsx.push(<Song btn="remove" obj={obj} setPlaylist={setPlaylist} playlist={playlist} key={obj.id}/>);
-        }
-        return jsx;
-    }
 
     return (
         <section>
             <Name />
-        { renderSongs() }
+            {
+                playlist ? playlist.map((song) => {
+                    return <Song 
+                    btn="remove" 
+                    setPlaylist={setPlaylist} 
+                    playlist={playlist} 
+                    key={song.id} 
+                    id={song.id} 
+                    name={song.name} 
+                    album={song.album} 
+                    artists={song.artists} 
+                    preview={song.preview_url}/>
+                }) : null
+            }
             <Export />
         </section>
     )
