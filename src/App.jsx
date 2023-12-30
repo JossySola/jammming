@@ -62,7 +62,7 @@ export default function App() {
                 <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/>
             </main>
             <Playlist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} setUserPlaylists={setUserPlaylists}/>
-            <Ipod newPlaylist={newPlaylist} userPlaylists={userPlaylists}/>
+            <Ipod userPlaylists={userPlaylists}/>
         </>
     )
 }

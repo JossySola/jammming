@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Name from "./components/name.jsx";
 import Export from "./components/export.jsx";
 import Song from "./song.jsx";
+import getUserPlaylists from "./logic/userPlaylists.js";
 
-export default function Playlist({newPlaylist, setNewPlaylist}) {
+export default function Playlist({newPlaylist, setNewPlaylist, setUserPlaylists}) {
     const [playlistName, setPlaylistName] = useState("");
 
     const handleSubmit = async () => {
@@ -53,6 +54,8 @@ export default function Playlist({newPlaylist, setNewPlaylist}) {
             */
 
             // CLEARS PLAYLIST DISPLAY
+            const userPlaylist = getUserPlaylists();
+            setUserPlaylists(userPlaylist);
             setNewPlaylist([]);
 
         } catch (err) {
