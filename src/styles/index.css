@@ -17,7 +17,11 @@ main {
 section {
     background-color: aquamarine;
 }
-/*-------------------------------------*/
+/*---------------------------- ID */
+#ipod {
+    color: red;
+    background-color: rgb(196, 194, 194);
+}
 
 /*---------------------------- CLASSES */
 .songAuthor {

@@ -2,7 +2,7 @@ import React from "react";
 import Add from "./components/add.jsx";
 import Remove from "./components/remove.jsx";
 
-export default function Song({btn, setPlaylist, playlist, id, name, preview, album, artists}) {
+export default function Song({btn, uri, setPlaylist, playlist, id, name, preview, album, artists}) {
     return (
         <>
             <details>
@@ -20,8 +20,8 @@ export default function Song({btn, setPlaylist, playlist, id, name, preview, alb
                 <span className="songName">{name}</span>
                 <span className="songAuthor">Author: {artists[0].name}</span>
                 <span className="songAlbum">Album: {album.name}</span>
-                {btn === "add" ? <Add id={id} name={name} preview={preview} album={album} artists={artists} playlist={playlist} setPlaylist={setPlaylist}/> : null}
-                {btn === "remove" ? <Remove id={id} playlist={playlist} setPlaylist={setPlaylist}/> : null}
+                {btn === "add" ? <Add id={id} name={name} uri={uri} preview={preview} album={album} artists={artists} playlist={playlist} setPlaylist={setPlaylist}/> : null}
+                {btn === "remove" ? <Remove id={id} uri={uri} playlist={playlist} setPlaylist={setPlaylist}/> : null}
             </details>
         </>
     )

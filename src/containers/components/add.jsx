@@ -3,6 +3,7 @@ import React from "react";
 export default function Add(
     {
     id,
+    uri,
     name,
     album,
     artists,
@@ -17,7 +18,7 @@ export default function Add(
             if (duplicate) {
                 return [...prev];
             }
-            return [...prev, {id,name,album,artists,preview,playlist,setPlaylist}];
+            return [...prev, {id,uri,name,album,artists,preview,playlist,setPlaylist}];
         })
     }
     
