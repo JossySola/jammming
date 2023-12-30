@@ -3,7 +3,7 @@ import Name from "./components/name.jsx";
 import Export from "./components/export.jsx";
 import Song from "./song.jsx";
 
-export default function Playlist({playlist, setPlaylist}) {
+export default function Playlist({newPlaylist, setNewPlaylist}) {
     const [playlistName, setPlaylistName] = useState("");
 
     const handleSubmit = async () => {
@@ -11,7 +11,7 @@ export default function Playlist({playlist, setPlaylist}) {
         const user = localStorage.getItem('user');
         const uris = [];
 
-        playlist.map((track) => {
+        newPlaylist.map((track) => {
             uris.push(`${track.uri}`)
         })
 
@@ -53,7 +53,7 @@ export default function Playlist({playlist, setPlaylist}) {
             */
 
             // CLEARS PLAYLIST DISPLAY
-            setPlaylist([]);
+            setNewPlaylist([]);
 
         } catch (err) {
             alertMsg(err.cause);
@@ -79,11 +79,11 @@ export default function Playlist({playlist, setPlaylist}) {
                 <Export />
             </form>
             {
-                playlist ? playlist.map((song) => {
+                newPlaylist ? newPlaylist.map((song) => {
                     return <Song 
                     btn="remove" 
-                    setPlaylist={setPlaylist} 
-                    playlist={playlist} 
+                    setNewPlaylist={setNewPlaylist} 
+                    newPlaylist={newPlaylist} 
                     key={song.id} 
                     id={song.id} 
                     name={song.name} 

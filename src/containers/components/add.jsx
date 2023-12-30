@@ -8,17 +8,17 @@ export default function Add(
     album,
     artists,
     preview,
-    playlist,
-    setPlaylist}) {
+    newPlaylist,
+    setNewPlaylist}) {
 
     function handleClick() {
-        setPlaylist((prev) => {
+        setNewPlaylist((prev) => {
             const duplicate = prev.find(song => song.id === id);
 
             if (duplicate) {
                 return [...prev];
             }
-            return [...prev, {id,uri,name,album,artists,preview,playlist,setPlaylist}];
+            return [...prev, {id,uri,name,album,artists,preview,newPlaylist,setNewPlaylist}];
         })
     }
     

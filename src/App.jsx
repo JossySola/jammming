@@ -8,7 +8,8 @@ import Ipod from "./containers/ipod.jsx";
 // **************************************************
 
 export default function App() {
-    const [playlist, setPlaylist] = useState([]);
+    const [newPlaylist, setNewPlaylist] = useState([]);
+    const [userPlaylists, setUserPlaylists] = useState([]);
     const urlParams = new URLSearchParams(window.location.search);
 
     useEffect(() => {
@@ -58,10 +59,10 @@ export default function App() {
             }}>Print</button>
 
             <main>
-                <Search playlist={playlist} setPlaylist={setPlaylist}/>
+                <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/>
             </main>
-            <Playlist playlist={playlist} setPlaylist={setPlaylist}/>
-            <Ipod playlist={playlist}/>
+            <Playlist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} setUserPlaylists={setUserPlaylists}/>
+            <Ipod newPlaylist={newPlaylist} userPlaylists={userPlaylists}/>
         </>
     )
 }

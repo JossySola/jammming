@@ -27,7 +27,7 @@ export default function Ipod({playlist}) {
                 });
             })
         })()
-    }); 
+    }, []); 
 
     return (
         <div id="ipod">

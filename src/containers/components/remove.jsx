@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Remove({id, playlist, setPlaylist}) {
+export default function Remove({id, newPlaylist, setNewPlaylist}) {
     function handleRemove() {
-        setPlaylist(() => playlist.filter((song) => song.id !== id));
+        setNewPlaylist(() => newPlaylist.filter((song) => song.id !== id));
     }
 
     return (

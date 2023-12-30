@@ -4,7 +4,7 @@ import { setLocalParams } from "./logic/reset.js";
 import { userAuth } from "./logic/auth.js";
 import Song from "./song.jsx";
 
-export default function Search({playlist, setPlaylist}) {
+export default function Search({newPlaylist, setNewPlaylist}) {
     const [search, setSearch] = useState("");
     const [songs, setSongs] = useState();
 
@@ -37,8 +37,8 @@ export default function Search({playlist, setPlaylist}) {
             tracks.map((obj) => {
                 jsx.push(<Song 
                 btn="add" 
-                setPlaylist={setPlaylist} 
-                playlist={playlist} 
+                setNewPlaylist={setNewPlaylist} 
+                newPlaylist={newPlaylist} 
                 key={obj.id} 
                 id={obj.id}
                 name={obj.name} 
