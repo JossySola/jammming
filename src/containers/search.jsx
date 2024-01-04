@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import getItem from "./logic/request.js";
 import { setLocalParams } from "./logic/reset.js";
 import { userAuth } from "./logic/auth.js";
-import Song from "./song.jsx";
+import Song from "./components/song.jsx";
+// SCRIPTS ***************************************
+import getCurrentUserProfile from "./scripts/user/getUserProfile.js";
+import requestUserAuthorization from "./scripts/authorization/requestAuth.js";
+import searchForItem from "./scripts/user/searchForItem.js";
+// ***********************************************
 
 export default function Search({newPlaylist, setNewPlaylist}) {
     const [search, setSearch] = useState("");
@@ -16,19 +21,45 @@ export default function Search({newPlaylist, setNewPlaylist}) {
     }
 
     const handleSubmit = async () => {
+        /*
         const verifier = localStorage.getItem('code_verifier');
         const challenge = localStorage.getItem('code_challenge');
         const state = localStorage.getItem('state');
-        let tracks = [];
-        let jsx = [];
+        */
+       const checkConnection = getCurrentUserProfile();
 
-        if(specialChar || num) {
+        if (specialChar || num) {
             console.error({
                 type: 'String permissions',
                 message: 'The input has numbers/symbols'
             });
-            return null;
-        } else if(!verifier || !challenge || !state) {
+            return false;
+        } else if (checkConnection() === false) {
+            localStorage.setItem('standBySearch', search);
+            requestUserAuthorization();
+        } else {
+            const response = await searchForItem(search);
+            const tracks = response.tracks.items;
+            setSongs(() => {
+                return tracks.map((obj) => {
+                    <Song 
+                    btn="add" 
+                    setNewPlaylist={setNewPlaylist} 
+                    newPlaylist={newPlaylist} 
+                    key={obj.id} 
+                    id={obj.id}
+                    name={obj.name} 
+                    uri={obj.uri} 
+                    album={obj.album} 
+                    artists={obj.artists}
+                    preview={obj.preview_url}
+                    />
+                })
+            })
+        }
+        
+        /*
+        if(!verifier || !challenge || !state) {
             setLocalParams();
             userAuth(challenge,state);
         } else {
@@ -50,6 +81,7 @@ export default function Search({newPlaylist, setNewPlaylist}) {
             })
             setSongs(jsx)
         }
+        */
     }
 
     return (

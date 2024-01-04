@@ -1,21 +1,18 @@
 import React, { useEffect } from "react";
 
 export default function Ipod({userPlaylists}) {
-
-    useEffect(() => {
-    }, [userPlaylists]); 
-
+    
     return (
         <div id="ipod">
-            {userPlaylists.map((element) => {
+            {userPlaylists ? userPlaylists.map((track) => {
                 return (
-                    <div className="ipodPlaylist" id={element.id} key={element.id}>
-                        <p>{element.name}</p>
-                        <p>Owner: {element.owner.display_name}</p>
-                        <p>Songs: {element.tracks.total}</p>
+                    <div key={track.id} id={track.id} className="ipodPlaylist">
+                        <p>{track.name}</p>
+                        <p>Made by: {track.owner.display_name}</p>
+                        <p>Total tracks: {track.tracks.total}</p>    
                     </div>
                 )
-            })}
+            }) : null}
         </div>
     )
 }

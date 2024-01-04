@@ -15,9 +15,21 @@ const payload = {
 }
 
 export default async function getRefreshToken() {
-    const body = await fetch('https://accounts.spotify.com/api/token', payload);
-    const response = await body.json();
-    localStorage.setItem('access_token', response.accessToken);
-    localStorage.setItem('refresh_token', response.refreshToken);
-    return response;
+
+    try {
+        const body = await fetch('https://accounts.spotify.com/api/token', payload);
+        const response = await body.json();
+        localStorage.setItem('access_token', response.accessToken);
+        localStorage.setItem('refresh_token', response.refreshToken);
+        return response;
+    } catch (err) {
+        alertMsg(err.cause);
+
+        console.error({
+            From: "request",
+            err,
+            Code: err.cause,
+        });
+    }
+    
 }

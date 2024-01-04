@@ -1,72 +1,29 @@
-import React, { useEffect, useState } from "react";
-import Name from "./components/name.jsx";
-import Export from "./components/export.jsx";
-import Song from "./song.jsx";
+import React, { useState } from "react";
+import Song from "./components/song.jsx";
 import getUserPlaylists from "./logic/userPlaylists.js";
+//import exportNewPlaylist from "./logic/export.js";
+// SCRIPTS ***************************************
+import exportNewPlaylist from "./scripts/user/exportNewPlaylist.js";
 
-export default function Playlist({newPlaylist, setNewPlaylist, setUserPlaylists}) {
+export default function Playlist({newPlaylist, setNewPlaylist, setUserPlaylists, connection}) {
     const [playlistName, setPlaylistName] = useState("");
 
-    const handleSubmit = async () => {
-        const authorization = localStorage.getItem('access_token')
-        const user = localStorage.getItem('user');
-        const uris = [];
+    const handleSubmit = () => {
+        if (!connection) null;
 
-        newPlaylist.map((track) => {
-            uris.push(`${track.uri}`)
-        })
-
-        const payloadForCreation = {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${authorization}`,
-                'Content-Type': 'application/json'
-            },
-            body: new URLSearchParams({
-                "name": `${playlistName}`,
-                "description": "Playlist created at Jammming",
-                "public": false
-            })
-        }
-
-        const payloadForAdding = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({
-                "uris": JSON.stringify(uris),
-                "position":0
-            })
-        }
-
+        const uris = newPlaylist.map(track => `${track.uri}`);
+        
+        /*
         try {
-            // CREATES PLAYLIST
-            const body = await fetch(`https://api.spotify.com/v1/${user}/playlists`,payloadForCreation);
-            const response = await body.json();
-            const playlistId = response.id;
-            console.log(playlistId)
-
-            // ADDS TRACKS
-            /*
-            const secondBody = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, payloadForAdding);
-            const secondResponse = await secondBody.json();
-            */
-
-            // CLEARS PLAYLIST DISPLAY
-            const userPlaylist = getUserPlaylists();
-            setUserPlaylists(userPlaylist);
+            exportNewPlaylist(playlistName, uris, newPlaylist);
+        } catch (e) {
+            console.log(e);
+        } finally {
             setNewPlaylist([]);
-
-        } catch (err) {
-            alertMsg(err.cause);
-
-            console.error({
-                From: "request",
-                err,
-                Code: err.cause,
-            });
         }
+        setUserPlaylists(getUserPlaylists());
+        setPlaylistName("");
+        */
     }
 
     return (
@@ -75,11 +32,12 @@ export default function Playlist({newPlaylist, setNewPlaylist, setUserPlaylists}
                 e.preventDefault();
                 handleSubmit();
             }}>
-                <Name onChange={(e) => {
+                <input type="text" name="playlist" id="playlist" maxLength="30" autoComplete="off" placeholder="Your playlist name" required 
+                onChange={(e) => {
                     e.preventDefault();
                     setPlaylistName(e.target.value);
                 }}/>
-                <Export />
+                <button type="submit">Export</button>
             </form>
             {
                 newPlaylist ? newPlaylist.map((song) => {

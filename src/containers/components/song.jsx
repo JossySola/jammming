@@ -1,6 +1,6 @@
 import React from "react";
-import Add from "./components/add.jsx";
-import Remove from "./components/remove.jsx";
+import Add from "./add.jsx";
+import Remove from "./remove.jsx";
 
 export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, preview, album, artists}) {
     return (
