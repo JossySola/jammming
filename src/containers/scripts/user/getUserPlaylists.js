@@ -1,3 +1,5 @@
+import alertMsg from "../alert.js";
+
 export default async function getUserPlaylists() {
     const authorization = localStorage.getItem('access_token');
 
@@ -29,5 +31,6 @@ export default async function getUserPlaylists() {
             err,
             Code: err.cause,
         });
+        return false;
     }
 }

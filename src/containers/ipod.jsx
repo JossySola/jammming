@@ -1,15 +1,26 @@
 import React, { useEffect } from "react";
+// SCRIPTS ***************************************
+import getUserPlaylists from "./scripts/user/getUserPlaylists.js";
+// ***********************************************
 
-export default function Ipod({userPlaylists}) {
-    
+export default function Ipod({connection, userPlaylists, exportation, setExportation, setUserPlaylists}) {
+    useEffect(() => {
+        (async () => {
+            let response = await getUserPlaylists();
+            setUserPlaylists(response);
+        })()
+        setExportation(false);
+    }, [exportation])
+
     return (
         <div id="ipod">
-            {userPlaylists ? userPlaylists.map((track) => {
+            {connection ? <p className="connected">Connected</p> : <p className="disconnected">Disconnected</p>}
+            {connection ? userPlaylists.map((playlist) => {
                 return (
-                    <div key={track.id} id={track.id} className="ipodPlaylist">
-                        <p>{track.name}</p>
-                        <p>Made by: {track.owner.display_name}</p>
-                        <p>Total tracks: {track.tracks.total}</p>    
+                    <div key={playlist.id} id={playlist.id} className="ipodPlaylist">
+                        <p>{playlist.name}</p>
+                        <p>Playlist made by: {playlist.owner.display_name}</p>
+                        <p>Total tracks: {playlist.tracks.total}</p>    
                     </div>
                 )
             }) : null}

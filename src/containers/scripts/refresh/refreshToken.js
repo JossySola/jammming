@@ -1,3 +1,5 @@
+import alertMsg from "../alert.js";
+
 const getRefreshToken = async () => {
     const refreshToken = localStorage.getItem('refresh_token');
     const url = "https://accounts.spotify.com/api/token";

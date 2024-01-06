@@ -1,3 +1,5 @@
+import alertMsg from "../alert.js";
+
 export default async function exportNewPlaylist(name, URIs, newPlaylist) {
     const authorization = localStorage.getItem('access_token');
     const user = localStorage.getItem('user');
@@ -35,7 +37,7 @@ export default async function exportNewPlaylist(name, URIs, newPlaylist) {
         if (newPlaylist.length > 0) {
             await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, payloadForAdding);
         }
-
+        return response;
     } catch (err) {
         alertMsg(err.cause);
     
@@ -44,5 +46,6 @@ export default async function exportNewPlaylist(name, URIs, newPlaylist) {
             err,
             Code: err.cause,
         });
+        return false;
     }
 }

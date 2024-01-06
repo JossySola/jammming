@@ -19,8 +19,16 @@ section {
 }
 /*---------------------------- ID */
 #ipod {
+    background-color: gray;
+}
+#ipod .connected {
+    color: rgb(10, 245, 10);
+}
+#ipod .disconnected {
     color: red;
-    background-color: rgb(196, 194, 194);
+}
+#playlist {
+    background-color: aquamarine;
 }
 
 /*---------------------------- CLASSES */

@@ -1,30 +1,29 @@
-const urlParams = new URLSearchParams(window.location.search);
-const code = urlParams.get('code');
-const err = urlParams.get('error');
-const state = urlParams.get('state');
+import alertMsg from "../alert.js";
+import searchForItem from "../user/searchForItem.js";
 
-export default async function requestAccessToken() {
+export default async function requestAccessToken(code,state) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const err = urlParams.get('error');
     const localState = localStorage.getItem('state');
     const codeVerifier = localStorage.getItem('code_verifier');
 
-    if (err) false;
+    if (err) return false;
 
     if (state === localState) {
-        const payload = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({
-                client_id: '4d78daad576446d79d1d038ddb3c3d2a',
-                grant_type: 'authorization_code',
-                code,
-                redirect_uri: 'http://localhost:3000/',
-                code_verifier: codeVerifier
-            }),
-        }
-
         try {
+            const payload = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    client_id: '4d78daad576446d79d1d038ddb3c3d2a',
+                    grant_type: 'authorization_code',
+                    code,
+                    redirect_uri: 'http://localhost:3000/',
+                    code_verifier: codeVerifier
+                }),
+            }
             const body = await fetch('https://accounts.spotify.com/api/token', payload);
             const response = await body.json(); 
 
@@ -36,8 +35,9 @@ export default async function requestAccessToken() {
 
             localStorage.setItem('access_token', response.access_token);
             localStorage.setItem('refresh_token', response.refresh_token);
-            return response;
 
+            await searchForItem(localStorage.getItem('standBySearch'));
+            return response;
         } catch (err) {
             alertMsg(err.cause);
 

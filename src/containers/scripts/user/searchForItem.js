@@ -1,3 +1,5 @@
+import alertMsg from "../alert.js";
+
 export default async function searchForItem(query) {
     const authorization = localStorage.getItem('access_token');
 

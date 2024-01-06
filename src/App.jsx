@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
+// CONTAINERS ************************************
 import Search from "./containers/search.jsx";
 import Playlist from "./containers/playlist.jsx";
-// **************************************************
-import accessToken from "./containers/logic/access.js";
-import getRefreshToken from "./containers/logic/refresh.js"
-import getUser from "./containers/logic/me.js";
-import Ipod from "./containers/ipod.jsx";
-import getUserPlaylists from "./containers/logic/userPlaylists.js";
 // SCRIPTS ***************************************
-import requestAccess from "./containers/scripts/access/requestAccess.js";
+import requestAccessToken from "./containers/scripts/access/requestAccess.js";
 import searchForItem from "./containers/scripts/user/searchForItem.js";
+import getUserPlaylists from "./containers/scripts/user/getUserPlaylists.js";
 import getCurrentUserProfile from "./containers/scripts/user/getUserProfile.js";
 // ***********************************************
 
@@ -19,38 +15,36 @@ export default function App() {
     const [connection, setConnection] = useState(false);
 
     const urlParams = new URLSearchParams(window.location.search);
-    const redirectedWithCode = urlParams.get('code');
     const redirectedWithError = urlParams.get('error');
 
     useEffect(() => {
-        if (getCurrentUserProfile()) {
-            setConnection(true);
-        }
-        if (redirectedWithCode) {
-            requestAccess();
-            searchForItem(localStorage.getItem('standBySearch'));
-        }
-/*
-        const state = localStorage.getItem('state');
-        const verifier = localStorage.getItem('code_verifier');
-        const access = localStorage.getItem('access_token');
-        const refresh = localStorage.getItem('refresh_token');
-        
-        if (!err && access && refresh) {
-            getUser();
-            (async () => {
-                let response = await getUserPlaylists();
-                setUserPlaylists(response);
-            })()
-            const refreshAction = setInterval(getRefreshToken(),3600);
-        } else if (code) {
-            accessToken(code, state, verifier);
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectedWithCode = urlParams.get('code');
+        const redirectedWithState = urlParams.get('state');
+
+        if (redirectedWithCode && redirectedWithState && connection === false) {
+            try {
+                requestAccessToken(redirectedWithCode, redirectedWithState);
+                setConnection(true);
+                //searchForItem(localStorage.getItem('standBySearch'));
+            } catch (e) {
+                console.log(e);
+                setConnection(false);
+            }
         }
 
-        console.log(userPlaylists)
-
-        return () => clearInterval(refreshAction);
-*/
+        (async () => {
+            const userAvailable = await getCurrentUserProfile();
+            if (userAvailable === false) {
+                setConnection(false);
+                return;
+            } else {
+                setConnection(true);
+                const userPlaylists = await getUserPlaylists();
+                setUserPlaylists(userPlaylists);
+                return;
+            }
+        })()
     }, []);
 
     return (
@@ -86,10 +80,9 @@ export default function App() {
             }}>Print</button>
 
             <main>
-                <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/>
+                <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} connection={connection}/>
             </main>
-            <Playlist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} setUserPlaylists={setUserPlaylists} connection={connection}/>
-            <Ipod userPlaylists={userPlaylists}/>
+            <Playlist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} userPlaylists={userPlaylists} setUserPlaylists={setUserPlaylists} connection={connection}/>
         </>
     )
 }
