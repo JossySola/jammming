@@ -23,7 +23,7 @@ export default function Add(
     }
     
     return (
-        <button onClick={(e) => {
+        <button alt="Add button" style={{fontSize: "2.5rem", width: "4rem", height: "4rem", color: "#0866ff"}} onClick={(e) => {
             e.preventDefault;
             handleClick();
         }}>+</button>

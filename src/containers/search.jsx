@@ -63,6 +63,7 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
                 id="search"
                 maxLength="30"
                 autoComplete="off"
+                placeholder="Song or Artist name"
                 required
                 onChange={(e) => {
                     handleSearch(e);
@@ -74,8 +75,8 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
                 id="submit">Search!</button>
             </form>
 
-            { specialChar || num ? <span style={{color: "white"}}>Numbers and symbols are not allowed</span> : null}
-            { !search ? <span style={{color: "white"}}>Start searching for your fav songs!</span> : null }
+            { specialChar || num ? <span style={{color: "black"}}>Numbers and symbols are not allowed</span> : null}
+            { !search ? <h3 style={{color: "black"}}>Add songs to your new playlist!</h3> : null }
             { songs && search ? songs.map(el => el) : null}
         </>
     )

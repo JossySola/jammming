@@ -4,40 +4,197 @@
     font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial";
 }
 /*-------------------------- SEMANTICS */
+audio::-webkit-media-controls-panel {
+    background-color: #f0f0f0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 button {
     margin: 15px;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
 }
 details {
-    background-color: blue;
-    color: white;
+    background-color: #f0f0f0;
+    border-radius: 1rem;
+    color: black;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+details summary {
+    cursor: pointer;
+}
+h1 {
+    text-align: center;
+    color: blueviolet;
+    font-size: 3rem;
+}
+input {
+    width: 15rem;
+    border: none;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.479);
+    font-weight: bold;
 }
 main {
-    background-color: black;
+    background-color: transparent;
+    width: 50rem;
+    max-height: 50rem;
+    overflow-y: scroll;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
 }
+main::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.3rem;
+}
+main::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+}
+
 section {
-    background-color: aquamarine;
+    background-color: rgb(185, 255, 127);
 }
 /*---------------------------- ID */
 #ipod {
-    background-color: gray;
+    background-color: rgb(230, 229, 229);
+    width: 400px;
+    height: 650px;
+    border-radius: 2rem;
+    border: 0.5rem solid #949393;
+    background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#ipod .connected {
-    color: rgb(10, 245, 10);
+#ipodContainer {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#ipod .disconnected {
-    color: red;
+#ipod #screen {
+    background-color: #aca8a5;
+    border: 0.3rem solid black;
+    border-radius: 1rem;
+    width: 300px;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-family: Courier, monospace;
+}
+#ipod #screen::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.3rem;
+}
+#ipod #screen::-webkit-scrollbar-thumb {
+    background-color: #3d3d3c;
+}
+#ipod #statusBar {
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#ipod .ipodPlaylist p {
+    padding: 0;
 }
 #playlist {
-    background-color: aquamarine;
+    background-color: #400073;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 30rem;
+}
+#playlist::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.3rem;
+}
+#playlist::-webkit-scrollbar-thumb {
+    background-color: white;
+}
+#poweredWithSpotify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 50px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+#statusBar {
+    background-color: #aca8a5;
+}
+#statusBar span {
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 /*---------------------------- CLASSES */
+.connected {
+    color: #3d3d3c;
+}
+.ipodPlaylist {
+    background-color: #3d3d3c;
+    color: #aca8a5;
+}
 .songAuthor {
-
+    color: #9b9999;
 }
-.songGenre {
-
+.songAlbum {
+    color: #9b9999;
 }
-.songName {
-    
+.spotify {
+    background-image: url(./Spotify.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 102px;
+    height: 60px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.spotifyDisconnected {
+    background-image: url(./iconscreen.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 0;
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.spotifyConnected {
+    background-image: url(./icongreen.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 0;
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.track {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }

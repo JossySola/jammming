@@ -6,9 +6,9 @@ export default function Remove({id, newPlaylist, setNewPlaylist}) {
     }
 
     return (
-        <button onClick={(e) => {
+        <button alt="Remove button" style={{fontSize: "1.3rem", width: "4rem", height: "4rem", color: "#0866ff"}} onClick={(e) => {
             e.preventDefault;
             handleRemove()
-        }}>-</button>
+        }}>Remove</button>
     )
 }

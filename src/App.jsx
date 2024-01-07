@@ -18,7 +18,6 @@ export default function App() {
     const redirectedWithError = urlParams.get('error');
 
     useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
         const redirectedWithCode = urlParams.get('code');
         const redirectedWithState = urlParams.get('state');
 
@@ -26,13 +25,13 @@ export default function App() {
             try {
                 requestAccessToken(redirectedWithCode, redirectedWithState);
                 setConnection(true);
-                //searchForItem(localStorage.getItem('standBySearch'));
             } catch (e) {
                 console.log(e);
                 setConnection(false);
             }
+            //searchForItem(localStorage.getItem('standBySearch'));
         }
-
+/*
         (async () => {
             const userAvailable = await getCurrentUserProfile();
             if (userAvailable === false) {
@@ -45,40 +44,19 @@ export default function App() {
                 return;
             }
         })()
+        */
     }, []);
 
     return (
         <>
+            <h1>Jammming.</h1>
+
+            <div id="poweredWithSpotify">
+                <span>Powered with</span><div alt="Spotify logo" className="spotify"/><span style={{color: '#1ed760ff', margin: 0, padding: 0, fontSize: "0.8rem"}}>®</span>
+            </div>
+            
             <span>{ redirectedWithError ? "Spotify authorization is required" : null }</span>
             
-            <button onClick={() => {
-                window.localStorage.removeItem('access_token');
-                window.localStorage.removeItem('code_verifier');
-                window.localStorage.removeItem('code');
-                window.localStorage.removeItem('refresh_token');
-                window.localStorage.removeItem('state');
-                window.localStorage.removeItem('user');
-
-                const code = urlParams.get('code');
-                const state = localStorage.getItem('state');
-                const verifier = localStorage.getItem('code_verifier');
-                const access = localStorage.getItem('access_token');
-                const refresh = localStorage.getItem('refresh_token');
-                const user = localStorage.getItem('user');
-
-                console.log(`Code: ${code}\nState:${state}\nVerifier:${verifier}\nAccess:${access}\nRefresh Token:${refresh}\nUser:${user}`)
-            }}>Reset</button>
-            <button onClick={() => {
-                const code = urlParams.get('code');
-                const state = localStorage.getItem('state');
-                const verifier = localStorage.getItem('code_verifier');
-                const access = localStorage.getItem('access_token');
-                const refresh = localStorage.getItem('refresh_token');
-                const user = localStorage.getItem('user');
-
-                console.log(`Code: ${code}\nState:${state}\nVerifier:${verifier}\nAccess:${access}\nRefresh Token:${refresh}\nUser:${user}`)
-            }}>Print</button>
-
             <main>
                 <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} connection={connection}/>
             </main>
