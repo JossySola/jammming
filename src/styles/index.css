@@ -36,11 +36,15 @@ h1 {
     color: blueviolet;
     font-size: 3rem;
 }
+h3 {
+    text-align: center;
+}
 input {
     width: 15rem;
     border: none;
     border-bottom: 2px solid rgba(128, 128, 128, 0.479);
     font-weight: bold;
+    padding: 1rem;
 }
 main {
     background-color: transparent;
@@ -70,7 +74,7 @@ section {
     width: 400px;
     height: 650px;
     border-radius: 2rem;
-    border: 0.5rem solid #949393;
+    border: 0.3rem solid #949393;
     background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
     padding: 2rem;
     display: flex;
@@ -82,6 +86,15 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#ipodWheel {
+    background-image: url(./wheel.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    margin-top: 1.5rem;
 }
 #ipod #screen {
     background-color: #aca8a5;

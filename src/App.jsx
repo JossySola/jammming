@@ -57,10 +57,12 @@ export default function App() {
             
             <span>{ redirectedWithError ? "Spotify authorization is required" : null }</span>
             
-            <main>
-                <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} connection={connection}/>
-            </main>
-            <Playlist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} userPlaylists={userPlaylists} setUserPlaylists={setUserPlaylists} connection={connection}/>
+            <div id="grid">
+                <main>
+                    <Search newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} connection={connection}/>
+                </main>
+                <Playlist newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} userPlaylists={userPlaylists} setUserPlaylists={setUserPlaylists} connection={connection}/>
+            </div>
         </>
     )
 }

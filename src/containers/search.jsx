@@ -52,32 +52,34 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
 
     return (
         <>
+        <div id="searchSide">
             <form
-            onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-            }}>
-                <input 
-                type="text"
-                name="search"
-                id="search"
-                maxLength="30"
-                autoComplete="off"
-                placeholder="Song or Artist name"
-                required
-                onChange={(e) => {
-                    handleSearch(e);
-                }}
-                />
-                <button
-                type="submit"
-                name="submit"
-                id="submit">Search!</button>
-            </form>
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSubmit();
+                }}>
+                    <input 
+                    type="text"
+                    name="search"
+                    id="search"
+                    maxLength="30"
+                    autoComplete="off"
+                    placeholder="Song or Artist name"
+                    required
+                    onChange={(e) => {
+                        handleSearch(e);
+                    }}
+                    />
+                    <button
+                    type="submit"
+                    name="submit"
+                    id="submit">Search!</button>
+                </form>
 
-            { specialChar || num ? <span style={{color: "black"}}>Numbers and symbols are not allowed</span> : null}
-            { !search ? <h3 style={{color: "black"}}>Add songs to your new playlist!</h3> : null }
-            { songs && search ? songs.map(el => el) : null}
+                { specialChar || num ? <span style={{color: "black"}}>Numbers and symbols are not allowed</span> : null}
+                { !search ? <h3 style={{color: "black"}}>Add songs to your new playlist!</h3> : null }
+                { songs && search ? songs.map(el => el) : null}
+        </div>
         </>
     )
 }

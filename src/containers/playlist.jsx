@@ -55,7 +55,11 @@ export default function Playlist({newPlaylist, setNewPlaylist, userPlaylists, se
                     }) : null
                 }
             </section>
-            <Ipod connection={connection} userPlaylists={userPlaylists} exportation={exportation} setExportation={setExportation} setUserPlaylists={setUserPlaylists}/>
+
+            <div id="spotifySide">
+                <Ipod connection={connection} userPlaylists={userPlaylists} exportation={exportation} setExportation={setExportation} setUserPlaylists={setUserPlaylists}/>
+            </div>
+            
         </>
     )
 }
