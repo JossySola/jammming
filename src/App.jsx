@@ -31,7 +31,7 @@ export default function App() {
             }
             //searchForItem(localStorage.getItem('standBySearch'));
         }
-/*
+
         (async () => {
             const userAvailable = await getCurrentUserProfile();
             if (userAvailable === false) {
@@ -44,7 +44,7 @@ export default function App() {
                 return;
             }
         })()
-        */
+        
     }, []);
 
     return (

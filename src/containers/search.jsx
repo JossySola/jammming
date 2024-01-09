@@ -28,6 +28,7 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
         } else if (connection === false) {
             localStorage.setItem('standBySearch', search);
             requestUserAuthorization();
+            return;
         } else {
             const response = await searchForItem(search);
             const tracks = response.tracks.items;

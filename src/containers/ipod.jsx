@@ -5,13 +5,13 @@ import getUserPlaylists from "./scripts/user/getUserPlaylists.js";
 
 export default function Ipod({connection, userPlaylists, exportation, setExportation, setUserPlaylists}) {
     useEffect(() => {
-        /*
-        (async () => {
-            let response = await getUserPlaylists();
-            setUserPlaylists(response);
-        })()
-        setExportation(false);
-        */
+        if (connection) {
+            (async () => {
+                let response = await getUserPlaylists();
+                setUserPlaylists(response);
+            })()
+            setExportation(false);
+        }
     }, [exportation])
 
     return (
@@ -35,7 +35,5 @@ export default function Ipod({connection, userPlaylists, exportation, setExporta
                 <div id="ipodWheel"></div>
             </div>
         </div>
-
-
     )
 }

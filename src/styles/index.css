@@ -48,14 +48,14 @@ input {
 }
 main {
     background-color: transparent;
-    width: 50rem;
+    width: 30vw;
     max-height: 50rem;
     overflow-y: scroll;
     position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 0;
 }
 main::-webkit-scrollbar {
     background-color: transparent;
@@ -69,6 +69,12 @@ section {
     background-color: rgb(185, 255, 127);
 }
 /*---------------------------- ID */
+#grid {
+    display: grid;
+    grid-template-areas: 
+    "a b c";
+    grid-template-columns: 1fr 1fr 1fr;
+}
 #ipod {
     background-color: rgb(230, 229, 229);
     width: 400px;
@@ -133,7 +139,10 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 30rem;
+    width: 30vw;
+    max-height: 50rem;
+    margin: 0;
+    border-radius: 1rem;
 }
 #playlist::-webkit-scrollbar {
     background-color: transparent;
@@ -158,7 +167,17 @@ section {
     margin: 0;
     font-size: 1.2rem;
 }
-
+#searchSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#spotifySide {
+    width: 30vw;
+}
 /*---------------------------- CLASSES */
 .connected {
     color: #3d3d3c;
