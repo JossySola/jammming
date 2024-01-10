@@ -220,9 +220,32 @@
     .disconnected {
         color: #3d3d3c;
     }
+    .error {
+        text-align: center;
+        margin: 1rem;
+        color: #fc472e;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .error img {
+        padding: 0;
+        margin: 0 0 0 1rem;
+    }
+    
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
+    }
+    .openSpotify {
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        background-color: #1DB954;
+        border-radius: 0.5rem;
+        display: block;
+        width: fit-content;
     }
     .songAuthor {
         color: #9b9999;
@@ -485,6 +508,28 @@
     .disconnected {
         color: #3d3d3c;
     }
+    .error {
+        text-align: center;
+        margin: 1rem;
+        color: #fc472e;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .error img {
+        padding: 0;
+        margin: 0 0 0 1rem;
+    }
+    .openSpotify {
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        background-color: #1DB954;
+        border-radius: 0.5rem;
+        display: block;
+        width: fit-content;
+    }
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
@@ -743,9 +788,31 @@
     .disconnected {
         color: #3d3d3c;
     }
+    .error {
+        text-align: center;
+        margin: 1rem;
+        color: #fc472e;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .error img {
+        padding: 0;
+        margin: 0 0 0 1rem;
+    }
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
+    }
+    .openSpotify {
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        background-color: #1DB954;
+        border-radius: 0.5rem;
+        display: block;
+        width: fit-content;
     }
     .songAuthor {
         color: #9b9999;
