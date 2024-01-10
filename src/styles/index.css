@@ -1,4 +1,4 @@
-@media only screen and (min-width: 310px) and (max-width: 1300px){
+@media only screen and (min-width: 310px) and (max-width: 850px){
     * {
         font-size: 3.5vw;
         padding: 0.5rem;
@@ -92,7 +92,7 @@
         border-radius: 2rem;
         border: 0.3rem solid #949393;
         background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
-        padding: 2rem;
+        padding: 5vw;
         margin: 0;
         display: flex;
         flex-direction: column;
@@ -120,7 +120,8 @@
         background-color: #aca8a5;
         border: 0.3rem solid black;
         border-radius: 1rem;
-        width: 300px;
+        width: 100vw;
+        max-width: 350px;
         height: 300px;
         overflow-y: scroll;
         padding: 0;
@@ -256,7 +257,7 @@
     }
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 851px) {
     * {
         padding: 0.5rem;
         margin: 0.5rem;
