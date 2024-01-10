@@ -263,14 +263,20 @@
         margin: 0.5rem;
         font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial";
     }
+    #root {
+        padding: 0;
+        margin: 0;
+    }
     /*-------------------------- SEMANTICS */
     audio::-webkit-media-controls-panel {
         background-color: #f0f0f0;
     }
     body {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        flex-flow: column wrap;
+        padding: 0;
+        margin: 0;
     }
     button {
         margin: 15px;
@@ -310,7 +316,7 @@
         background-color: transparent;
         min-width: 411px;
         width: 30vw;
-        max-height: 50rem;
+        max-height: 45rem;
         overflow-y: scroll;
         position: relative;
         display: inline-flex;
@@ -335,10 +341,12 @@
         grid-template-areas: 
         "a b c";
         grid-template-columns: 1fr 1fr 1fr;
+        padding: 0;
+        margin: 0;
     }
     #ipod {
         background-color: rgb(230, 229, 229);
-        width: 400px;
+        max-width: 400px;
         height: 650px;
         border-radius: 2rem;
         border: 0.3rem solid #949393;
@@ -351,8 +359,6 @@
     #ipodContainer {
         height: auto;
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
     #ipodWheel {
         background-image: url(./wheel.svg);
@@ -402,7 +408,7 @@
         align-items: center;
         min-width: 410px;
         width: 30vw;
-        max-height: 50rem;
+        max-height: 45rem;
         margin: 0;
         border-radius: 1rem;
     }
@@ -440,6 +446,8 @@
     #spotifySide {
         min-width: 430px;
         width: 30vw;
+        padding: 0;
+        margin: 0;
     }
     /*---------------------------- CLASSES */
     .connected {
