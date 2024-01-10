@@ -1,4 +1,4 @@
-@media only screen and (min-width: 310px) and (max-width: 850px){
+@media only screen and (max-width: 850px){
     * {
         font-size: 3.5vw;
         padding: 0.5rem;
@@ -71,6 +71,13 @@
 
     section {
         background-color: rgb(185, 255, 127);
+    }
+    summary {
+        display: flex;
+        font-size: 1.3rem;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
     }
     /*---------------------------- ID */
     #grid {
@@ -157,7 +164,7 @@
         width: 100vw;
         max-height: 60vh;
         margin: 1rem 0 1rem 0;
-        padding: 0;
+        padding: 1rem 0 1rem 0;
         border-radius: 1rem;
     }
     #playlist::-webkit-scrollbar {
@@ -201,6 +208,12 @@
         padding: 0;
     }
     /*---------------------------- CLASSES */
+    .addRemove {
+        color: #0866ff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0;
+    }
     .connected {
         color: #3d3d3c;
     }
@@ -336,6 +349,13 @@
     section {
         background-color: rgb(185, 255, 127);
     }
+    summary {
+        display: flex;
+        font-size: 1.3rem;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
     /*---------------------------- ID */
     #grid {
         display: grid;
@@ -453,6 +473,12 @@
         margin: 0;
     }
     /*---------------------------- CLASSES */
+    .addRemove {
+        color: #0866ff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0;
+    }
     .connected {
         color: #3d3d3c;
     }
@@ -667,7 +693,7 @@
         width: 100vw;
         max-height: 50vh;
         margin: 1rem 0 1rem 0;
-        padding: 0;
+        padding: 1rem 0 1rem 0;
         border-radius: 1rem;
     }
     #playlist::-webkit-scrollbar {
