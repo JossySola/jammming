@@ -1,5 +1,4 @@
 import alertMsg from "../alert.js";
-import searchForItem from "../user/searchForItem.js";
 
 export default async function requestAccessToken(code,state) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -45,11 +44,13 @@ export default async function requestAccessToken(code,state) {
                 err,
                 Code: err.cause,
             });
+            return false;
         }
     } else {
-    console.error({
+        console.error({
         type: 'Cross-site Request Forgery prevention.',
         message: 'The local state is not the same as the one received from server.'
         });
+        return false;
     }
 }
