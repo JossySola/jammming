@@ -30,21 +30,20 @@ export default function App() {
                 setConnection(false);
             }
             //searchForItem(localStorage.getItem('standBySearch'));
+        } else {
+            (async () => {
+                const userAvailable = await getCurrentUserProfile();
+                if (userAvailable === false) {
+                    setConnection(false);
+                    return;
+                } else {
+                    setConnection(true);
+                    const userPlaylists = await getUserPlaylists();
+                    setUserPlaylists(userPlaylists);
+                    return;
+                }
+            })()
         }
-
-        (async () => {
-            const userAvailable = await getCurrentUserProfile();
-            if (userAvailable === false) {
-                setConnection(false);
-                return;
-            } else {
-                setConnection(true);
-                const userPlaylists = await getUserPlaylists();
-                setUserPlaylists(userPlaylists);
-                return;
-            }
-        })()
-        
     }, []);
 
     return (
