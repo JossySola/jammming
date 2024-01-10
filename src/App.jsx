@@ -7,7 +7,9 @@ import requestAccessToken from "./containers/scripts/access/requestAccess.js";
 import searchForItem from "./containers/scripts/user/searchForItem.js";
 import getUserPlaylists from "./containers/scripts/user/getUserPlaylists.js";
 import getCurrentUserProfile from "./containers/scripts/user/getUserProfile.js";
+import getRefreshToken from "./containers/scripts/refresh/refreshToken.js";
 // ***********************************************
+import alert from './styles/alert.svg';
 
 export default function App() {
     const [newPlaylist, setNewPlaylist] = useState([]);
@@ -20,16 +22,22 @@ export default function App() {
     useEffect(() => {
         const redirectedWithCode = urlParams.get('code');
         const redirectedWithState = urlParams.get('state');
+        let refreshToken;
 
         if (redirectedWithCode && redirectedWithState && connection === false) {
-            try {
-                requestAccessToken(redirectedWithCode, redirectedWithState);
-                setConnection(true);
-            } catch (e) {
-                console.log(e);
-                setConnection(false);
-            }
-            //searchForItem(localStorage.getItem('standBySearch'));
+            (async () => {
+                try {
+                    const response = await requestAccessToken(redirectedWithCode, redirectedWithState);
+                    setConnection(true);
+                    if (response) {
+                        refreshToken = setInterval(getRefreshToken, 3600);
+                        const userPlaylists = await getUserPlaylists();
+                        setUserPlaylists(userPlaylists);
+                    }
+                } catch (e) {
+                    setConnection(false);
+                }
+            })()
         } else {
             (async () => {
                 const userAvailable = await getCurrentUserProfile();
@@ -44,6 +52,7 @@ export default function App() {
                 }
             })()
         }
+        return clearInterval(refreshToken);
     }, []);
 
     return (
@@ -54,7 +63,7 @@ export default function App() {
                 <span>Powered with</span><div alt="Spotify logo" className="spotify"/><span style={{color: '#1ed760ff', margin: 0, padding: 0, fontSize: "0.8rem"}}>®</span>
             </div>
             
-            <span>{ redirectedWithError ? "Spotify authorization is required" : null }</span>
+            {redirectedWithError ? <p className="error">The Spotify authorization is required to use its features.<img alt="alert icon" src={alert}/></p> : null}
             
             <div id="grid">
                 <main>
