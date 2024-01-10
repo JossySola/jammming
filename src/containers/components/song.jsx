@@ -6,7 +6,7 @@ export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, p
     return (
         <>
             <details>
-                <summary>{name}</summary>
+                <summary>{name}{btn === "add" ? <Add id={id} name={name} uri={uri} preview={preview} album={album} artists={artists} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/> : <Remove id={id} uri={uri} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/>}</summary>
                 <div className="track">
                     <img 
                     src={album.images[1].url} 
@@ -22,9 +22,6 @@ export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, p
                     <span className="songAuthor">Artist: {artists[0].name}</span>
                     <span className="songAlbum">Album: {album.name}</span>
                 </div>
-                {btn === "add" ? <Add id={id} name={name} uri={uri} preview={preview} album={album} artists={artists} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/> : null}
-                {btn === "remove" ? <Remove id={id} uri={uri} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/> : null}
-                
             </details>
         </>
     )
