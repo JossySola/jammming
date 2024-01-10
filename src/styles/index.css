@@ -1,232 +1,756 @@
-* {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial";
-}
-/*-------------------------- SEMANTICS */
-audio::-webkit-media-controls-panel {
-    background-color: #f0f0f0;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-button {
-    margin: 15px;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-}
-details {
-    background-color: #f0f0f0;
-    border-radius: 1rem;
-    color: black;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-}
-details summary {
-    cursor: pointer;
-}
-h1 {
-    text-align: center;
-    color: blueviolet;
-    font-size: 3rem;
-}
-h3 {
-    text-align: center;
-}
-input {
-    width: 15rem;
-    border: none;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.479);
-    font-weight: bold;
-    padding: 1rem;
-}
-main {
-    background-color: transparent;
-    width: 30vw;
-    max-height: 50rem;
-    overflow-y: scroll;
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-}
-main::-webkit-scrollbar {
-    background-color: transparent;
-    width: 0.3rem;
-}
-main::-webkit-scrollbar-thumb {
-    background-color: darkgray;
+@media only screen and (min-width: 310px) and (max-width: 1300px){
+    * {
+        font-size: 3.5vw;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial";
+    }
+    /*-------------------------- SEMANTICS */
+    audio::-webkit-media-controls-panel {
+        background-color: #f0f0f0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        margin: 15px;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+    }
+    details {
+        background-color: #f0f0f0;
+        border-radius: 1rem;
+        color: black;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+    details summary {
+        cursor: pointer;
+    }
+    h1 {
+        text-align: center;
+        color: blueviolet;
+        font-size: 3rem;
+    }
+    h3 {
+        text-align: center;
+    }
+    input {
+        width: 35vw;
+        border: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.479);
+        font-weight: bold;
+        padding: 1rem;
+    }
+    main {
+        background-color: transparent;
+        width: 100vw;
+        max-height: 50vh;
+        overflow-y: scroll;
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 1rem 0 1rem 0;
+    }
+    main::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    main::-webkit-scrollbar-thumb {
+        background-color: darkgray;
+    }
+
+    section {
+        background-color: rgb(185, 255, 127);
+    }
+    /*---------------------------- ID */
+    #grid {
+        display: grid;
+        grid-template-areas: 
+        "a"
+        "b"
+        "c";
+        grid-template-rows: auto auto 1fr;
+        padding: 0;
+        margin: 0;
+        width: auto;
+    }
+    #ipod {
+        background-color: rgb(230, 229, 229);
+        width: 100vw;
+        max-width: 400px;
+        height: 650px;
+        border-radius: 2rem;
+        border: 0.3rem solid #949393;
+        background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
+        padding: 2rem;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #ipodContainer {
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #ipodWheel {
+        background-image: url(./wheel.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 300px;
+        height: 300px;
+        margin-top: 1.5rem;
+    }
+    #ipod #screen {
+        background-color: #aca8a5;
+        border: 0.3rem solid black;
+        border-radius: 1rem;
+        width: 300px;
+        height: 300px;
+        overflow-y: scroll;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        font-family: Courier, monospace;
+    }
+    #ipod #screen::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    #ipod #screen::-webkit-scrollbar-thumb {
+        background-color: #3d3d3c;
+    }
+    #ipod #statusBar {
+        padding: 0.5rem;
+        margin: 0;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #ipod .ipodPlaylist p {
+        padding: 0;
+    }
+    #playlist {
+        background-color: #400073;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        max-height: 50vh;
+        margin: 1rem 0 1rem 0;
+        padding: 0;
+        border-radius: 1rem;
+    }
+    #playlist::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    #playlist::-webkit-scrollbar-thumb {
+        background-color: white;
+    }
+    #poweredWithSpotify {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 50px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    #root {
+        margin: 0;
+        padding: 0;
+    }
+    #statusBar {
+        background-color: #aca8a5;
+    }
+    #statusBar span {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+    #searchSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #spotifySide {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+    /*---------------------------- CLASSES */
+    .connected {
+        color: #3d3d3c;
+    }
+    .disconnected {
+        color: #3d3d3c;
+    }
+    .ipodPlaylist {
+        background-color: #3d3d3c;
+        color: #aca8a5;
+    }
+    .songAuthor {
+        color: #9b9999;
+    }
+    .songAlbum {
+        color: #9b9999;
+    }
+    .spotify {
+        background-image: url(./Spotify.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 102px;
+        height: 60px;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+    .spotifyDisconnected {
+        background-image: url(./iconscreen.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .spotifyConnected {
+        background-image: url(./icongreen.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .track {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
 }
 
-section {
-    background-color: rgb(185, 255, 127);
+@media only screen and (min-width: 1300px) {
+    * {
+        padding: 0.5rem;
+        margin: 0.5rem;
+        font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial";
+    }
+    /*-------------------------- SEMANTICS */
+    audio::-webkit-media-controls-panel {
+        background-color: #f0f0f0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        margin: 15px;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+    }
+    details {
+        background-color: #f0f0f0;
+        border-radius: 1rem;
+        color: black;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+    details summary {
+        cursor: pointer;
+    }
+    h1 {
+        text-align: center;
+        color: blueviolet;
+        font-size: 3rem;
+    }
+    h3 {
+        text-align: center;
+    }
+    input {
+        width: 15rem;
+        border: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.479);
+        font-weight: bold;
+        padding: 1rem;
+    }
+    main {
+        background-color: transparent;
+        min-width: 411px;
+        width: 30vw;
+        max-height: 50rem;
+        overflow-y: scroll;
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    main::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    main::-webkit-scrollbar-thumb {
+        background-color: darkgray;
+    }
+
+    section {
+        background-color: rgb(185, 255, 127);
+    }
+    /*---------------------------- ID */
+    #grid {
+        display: grid;
+        grid-template-areas: 
+        "a b c";
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #ipod {
+        background-color: rgb(230, 229, 229);
+        width: 400px;
+        height: 650px;
+        border-radius: 2rem;
+        border: 0.3rem solid #949393;
+        background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #ipodContainer {
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #ipodWheel {
+        background-image: url(./wheel.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 300px;
+        height: 300px;
+        margin-top: 1.5rem;
+    }
+    #ipod #screen {
+        background-color: #aca8a5;
+        border: 0.3rem solid black;
+        border-radius: 1rem;
+        width: 300px;
+        height: 300px;
+        overflow-y: scroll;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        font-family: Courier, monospace;
+    }
+    #ipod #screen::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    #ipod #screen::-webkit-scrollbar-thumb {
+        background-color: #3d3d3c;
+    }
+    #ipod #statusBar {
+        padding: 0.5rem;
+        margin: 0;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #ipod .ipodPlaylist p {
+        padding: 0;
+    }
+    #playlist {
+        background-color: #400073;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 410px;
+        width: 30vw;
+        max-height: 50rem;
+        margin: 0;
+        border-radius: 1rem;
+    }
+    #playlist::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    #playlist::-webkit-scrollbar-thumb {
+        background-color: white;
+    }
+    #poweredWithSpotify {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 50px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    #statusBar {
+        background-color: #aca8a5;
+    }
+    #statusBar span {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+    #searchSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #spotifySide {
+        min-width: 430px;
+        width: 30vw;
+    }
+    /*---------------------------- CLASSES */
+    .connected {
+        color: #3d3d3c;
+    }
+    .disconnected {
+        color: #3d3d3c;
+    }
+    .ipodPlaylist {
+        background-color: #3d3d3c;
+        color: #aca8a5;
+    }
+    .songAuthor {
+        color: #9b9999;
+    }
+    .songAlbum {
+        color: #9b9999;
+    }
+    .spotify {
+        background-image: url(./Spotify.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 102px;
+        height: 60px;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+    .spotifyDisconnected {
+        background-image: url(./iconscreen.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .spotifyConnected {
+        background-image: url(./icongreen.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .track {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
 }
-/*---------------------------- ID */
-#grid {
-    display: grid;
-    grid-template-areas: 
-    "a b c";
-    grid-template-columns: 1fr 1fr 1fr;
-}
-#ipod {
-    background-color: rgb(230, 229, 229);
-    width: 400px;
-    height: 650px;
-    border-radius: 2rem;
-    border: 0.3rem solid #949393;
-    background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#ipodContainer {
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#ipodWheel {
-    background-image: url(./wheel.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 300px;
-    height: 300px;
-    margin-top: 1.5rem;
-}
-#ipod #screen {
-    background-color: #aca8a5;
-    border: 0.3rem solid black;
-    border-radius: 1rem;
-    width: 300px;
-    height: 300px;
-    overflow-y: scroll;
-    padding: 0;
-    margin: 0;
-    font-weight: bold;
-    font-family: Courier, monospace;
-}
-#ipod #screen::-webkit-scrollbar {
-    background-color: transparent;
-    width: 0.3rem;
-}
-#ipod #screen::-webkit-scrollbar-thumb {
-    background-color: #3d3d3c;
-}
-#ipod #statusBar {
-    padding: 0.5rem;
-    margin: 0;
-    text-align: center;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#ipod .ipodPlaylist p {
-    padding: 0;
-}
-#playlist {
-    background-color: #400073;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30vw;
-    max-height: 50rem;
-    margin: 0;
-    border-radius: 1rem;
-}
-#playlist::-webkit-scrollbar {
-    background-color: transparent;
-    width: 0.3rem;
-}
-#playlist::-webkit-scrollbar-thumb {
-    background-color: white;
-}
-#poweredWithSpotify {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 50px;
-    text-align: center;
-    font-size: 1.1rem;
-}
-#statusBar {
-    background-color: #aca8a5;
-}
-#statusBar span {
-    margin: 0;
-    font-size: 1.2rem;
-}
-#searchSide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-#spotifySide {
-    width: 30vw;
-}
-/*---------------------------- CLASSES */
-.connected {
-    color: #3d3d3c;
-}
-.ipodPlaylist {
-    background-color: #3d3d3c;
-    color: #aca8a5;
-}
-.songAuthor {
-    color: #9b9999;
-}
-.songAlbum {
-    color: #9b9999;
-}
-.spotify {
-    background-image: url(./Spotify.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 102px;
-    height: 60px;
-    position: relative;
-    padding: 0;
-    margin: 0;
-}
-.spotifyDisconnected {
-    background-image: url(./iconscreen.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    padding: 0;
-    margin: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-}
-.spotifyConnected {
-    background-image: url(./icongreen.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    padding: 0;
-    margin: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-}
-.track {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) {
+    * {
+        font-size: 3.5vw;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial";
+    }
+    /*-------------------------- SEMANTICS */
+    audio::-webkit-media-controls-panel {
+        background-color: #f0f0f0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        margin: 15px;
+        border: none;
+        padding: 1rem;
+        cursor: pointer;
+    }
+    details {
+        background-color: #f0f0f0;
+        border-radius: 1rem;
+        color: black;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+    details summary {
+        cursor: pointer;
+    }
+    h1 {
+        text-align: center;
+        color: blueviolet;
+        font-size: 3rem;
+    }
+    h3 {
+        text-align: center;
+    }
+    input {
+        width: 35vw;
+        border: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.479);
+        font-weight: bold;
+        padding: 1rem;
+    }
+    main {
+        background-color: transparent;
+        width: 100vw;
+        max-height: 50vh;
+        overflow-y: scroll;
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 1rem 0 1rem 0;
+    }
+    main::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    main::-webkit-scrollbar-thumb {
+        background-color: darkgray;
+    }
+
+    section {
+        background-color: rgb(185, 255, 127);
+    }
+    /*---------------------------- ID */
+    #grid {
+        display: grid;
+        grid-template-areas: 
+        "a"
+        "b"
+        "c";
+        grid-template-rows: auto auto 1fr;
+        padding: 0;
+        margin: 0;
+        width: auto;
+    }
+    #ipod {
+        background-color: rgb(230, 229, 229);
+        width: 100vw;
+        max-width: 400px;
+        height: 650px;
+        border-radius: 2rem;
+        border: 0.3rem solid #949393;
+        background-image: linear-gradient(45deg, rgb(161, 160, 160), rgb(252, 251, 251));
+        padding: 3vh 1vw 3vh 1vw;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #ipodContainer {
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #ipodWheel {
+        background-image: url(./wheel.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 300px;
+        height: 300px;
+        margin-top: 1.5rem;
+    }
+    #ipod #screen {
+        background-color: #aca8a5;
+        border: 0.3rem solid black;
+        border-radius: 1rem;
+        width: 300px;
+        height: 300px;
+        overflow-y: scroll;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+        font-family: Courier, monospace;
+    }
+    #ipod #screen::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    #ipod #screen::-webkit-scrollbar-thumb {
+        background-color: #3d3d3c;
+    }
+    #ipod #statusBar {
+        padding: 0.5rem;
+        margin: 0;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #ipod .ipodPlaylist p {
+        padding: 0;
+    }
+    #playlist {
+        background-color: #400073;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        max-height: 50vh;
+        margin: 1rem 0 1rem 0;
+        padding: 0;
+        border-radius: 1rem;
+    }
+    #playlist::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.3rem;
+    }
+    #playlist::-webkit-scrollbar-thumb {
+        background-color: white;
+    }
+    #poweredWithSpotify {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 50px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    #root {
+        margin: 0;
+        padding: 0;
+    }
+    #statusBar {
+        background-color: #aca8a5;
+    }
+    #statusBar span {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+    #searchSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #spotifySide {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+    /*---------------------------- CLASSES */
+    .connected {
+        color: #3d3d3c;
+    }
+    .disconnected {
+        color: #3d3d3c;
+    }
+    .ipodPlaylist {
+        background-color: #3d3d3c;
+        color: #aca8a5;
+    }
+    .songAuthor {
+        color: #9b9999;
+    }
+    .songAlbum {
+        color: #9b9999;
+    }
+    .spotify {
+        background-image: url(./Spotify.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 102px;
+        height: 60px;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+    .spotifyDisconnected {
+        background-image: url(./iconscreen.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .spotifyConnected {
+        background-image: url(./icongreen.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0;
+        margin: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .track {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
 }
