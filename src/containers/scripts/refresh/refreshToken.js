@@ -1,7 +1,7 @@
 import alertMsg from "../alert.js";
 
 const getRefreshToken = async () => {
-    const refreshToken = localStorage.getItem('refresh_token');
+    const refresh_token = localStorage.getItem('refresh_token');
     const url = "https://accounts.spotify.com/api/token";
 
     const payload = {
@@ -11,7 +11,7 @@ const getRefreshToken = async () => {
         },
         body: new URLSearchParams({
             grant_type: 'refresh_token',
-            refresh_token: refreshToken,
+            refresh_token,
             client_id: '4d78daad576446d79d1d038ddb3c3d2a'
         }),
     }
