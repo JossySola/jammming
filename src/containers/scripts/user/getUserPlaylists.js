@@ -9,8 +9,7 @@ export default async function getUserPlaylists() {
             Authorization: `Bearer ${authorization}`
         }
     }
-    console.log("GETTING PLAYLISTS")
-
+    
     try {
         const body = await fetch('https://api.spotify.com/v1/me/playlists',payload);
         const response = await body.json();
