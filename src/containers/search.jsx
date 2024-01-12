@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // COMPONENTS ************************************
 import Song from "./components/song.jsx";
 // SCRIPTS ***************************************
@@ -9,6 +9,44 @@ import searchForItem from "./scripts/user/searchForItem.js";
 export default function Search({newPlaylist, setNewPlaylist, connection}) {
     const [search, setSearch] = useState("");
     const [songs, setSongs] = useState([]);
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectedWithCode = urlParams.get('code');
+        const redirectedWithState = urlParams.get('state');
+        const temporalSearchKeyword = window.localStorage.getItem('standBySearch');
+
+        if(temporalSearchKeyword && redirectedWithCode && redirectedWithState) {
+            (async () => {
+                try {
+                    window.localStorage.removeItem('standBySearch');
+                    const inputBox = document.getElementById('search');
+                    inputBox.setAttribute('value',temporalSearchKeyword);
+                    setSearch(temporalSearchKeyword);
+                    const response = await searchForItem(temporalSearchKeyword);
+                    const tracks = response.tracks.items;
+                    setSongs(() => {
+                        return tracks.map((obj) => {
+                            return <Song 
+                            btn="add" 
+                            setNewPlaylist={setNewPlaylist} 
+                            newPlaylist={newPlaylist} 
+                            key={obj.id} 
+                            id={obj.id}
+                            name={obj.name} 
+                            uri={obj.uri} 
+                            album={obj.album} 
+                            artists={obj.artists}
+                            preview={obj.preview_url}
+                            />
+                        })
+                    })
+                } catch (e) {
+                    console.log(e);
+                }
+            })()
+        }
+    }, [])
 
     const specialChar = /[^A-Za-z\s]/.test(search);
     const num = /[0-9]/.test(search);
