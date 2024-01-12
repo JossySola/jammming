@@ -4,7 +4,6 @@ import Search from "./containers/search.jsx";
 import Playlist from "./containers/playlist.jsx";
 // SCRIPTS ***************************************
 import requestAccessToken from "./containers/scripts/access/requestAccess.js";
-import searchForItem from "./containers/scripts/user/searchForItem.js";
 import getUserPlaylists from "./containers/scripts/user/getUserPlaylists.js";
 import getCurrentUserProfile from "./containers/scripts/user/getUserProfile.js";
 import getRefreshToken from "./containers/scripts/refresh/refreshToken.js";
@@ -30,7 +29,7 @@ export default function App() {
                     const response = await requestAccessToken(redirectedWithCode, redirectedWithState);
                     setConnection(true);
                     if (response) {
-                        refreshToken = setInterval(getRefreshToken, 3600);
+                        //refreshToken = setInterval(getRefreshToken, 3600);
                         const userPlaylists = await getUserPlaylists();
                         setUserPlaylists(userPlaylists);
                     }
