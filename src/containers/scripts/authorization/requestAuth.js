@@ -18,7 +18,7 @@ export default function requestUserAuthorization() {
     state: state,
     code_challenge_method: 'S256',
     code_challenge: codeChallenge,
-    redirect_uri: 'http://localhost:3000/'
+    redirect_uri: 'https://jossysola.github.io/jammming/'
   }
 
   authUrl.search = new URLSearchParams(params).toString();
