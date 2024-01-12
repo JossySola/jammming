@@ -19,7 +19,7 @@ const getCurrentUserProfile = async () => {
         }
 
         localStorage.setItem('user', response.id);
-        return response;
+        return response.id;
     } catch (err) {
         alertMsg(err.cause);
 
