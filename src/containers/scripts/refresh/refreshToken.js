@@ -2,6 +2,7 @@ import alertMsg from "../alert.js";
 
 const getRefreshToken = async () => {
     const refresh_token = localStorage.getItem('refresh_token');
+    console.log(localStorage.getItem('refresh_token') + " FROM REFRESH")
     const url = "https://accounts.spotify.com/api/token";
 
     const payload = {

@@ -19,7 +19,7 @@ export default async function requestAccessToken(code,state) {
                     client_id: '4d78daad576446d79d1d038ddb3c3d2a',
                     grant_type: 'authorization_code',
                     code,
-                    redirect_uri: 'http://localhost:3000/',
+                    redirect_uri: 'https://jossysola.github.io/jammming/',
                     code_verifier: codeVerifier
                 }),
             }
@@ -34,6 +34,8 @@ export default async function requestAccessToken(code,state) {
 
             localStorage.setItem('access_token', response.access_token);
             localStorage.setItem('refresh_token', response.refresh_token);
+
+            console.log(localStorage.getItem('refresh_token') + " FROM ACCESS")
             
             return response;
         } catch (err) {
