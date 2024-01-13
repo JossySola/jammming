@@ -1,9 +1,8 @@
 import alertMsg from "../alert.js";
-import getCurrentUserProfile from "./getUserProfile.js";
 
 export default async function exportNewPlaylist(name, URIs, newPlaylist) {
     const authorization = localStorage.getItem('access_token');
-    const user = await getCurrentUserProfile();
+    const user = localStorage.getItem('user');
 
     const payloadForCreation = {
         method: 'POST',
