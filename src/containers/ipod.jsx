@@ -1,18 +1,6 @@
-import React, { useEffect } from "react";
-// SCRIPTS ***************************************
-import getUserPlaylists from "./scripts/user/getUserPlaylists.js";
-// ***********************************************
+import React from "react";
 
-export default function Ipod({connection, userPlaylists, exportation, setExportation, setUserPlaylists}) {
-    useEffect(() => {
-        if (connection) {
-            (async () => {
-                let response = await getUserPlaylists();
-                setUserPlaylists(response);
-            })()
-            setExportation(false);
-        }
-    }, [exportation])
+export default function Ipod({connection, userPlaylists}) {
 
     return (
         <div id="ipodContainer">

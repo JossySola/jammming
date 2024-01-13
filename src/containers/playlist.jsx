@@ -1,29 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // COMPONENTS ************************************
 import Song from "./components/song.jsx";
 // CONTAINERS ************************************
 import Ipod from "./ipod.jsx";
 // SCRIPTS ***************************************
 import exportNewPlaylist from "./scripts/user/exportNewPlaylist.js";
+import getUserPlaylists from "./scripts/user/getUserPlaylists.js";
 // ***********************************************
 
 export default function Playlist({newPlaylist, setNewPlaylist, userPlaylists, setUserPlaylists, connection}) {
     const [playlistName, setPlaylistName] = useState("");
     const [exportation, setExportation] = useState(false);
 
-    const handleSubmit = () => {
-        if (connection === false) return null;
+    useEffect(() => {
+        (async () => {
+            let response = await getUserPlaylists();
+            setUserPlaylists(response);
+            document.getElementById("playlistInput").setAttribute("value", "");
+        })()
+    }, [exportation])
 
-        const uris = newPlaylist.map(track => `${track.uri}`);
-
-        try {
-            newPlaylist ? exportNewPlaylist(playlistName, uris, newPlaylist) : false;
-        } catch (e) {
-            console.log(e);
+    const handleSubmit = async () => {
+        if (connection === false) {
+            setExportation(false);
+            return null;
+        } else if (newPlaylist) {
+            const uris = newPlaylist.map(track => `${track.uri}`);
+            try {
+                const response = await exportNewPlaylist(playlistName, uris, newPlaylist);
+                response ? setExportation(true) : setExportation(false);
+            } catch (e) {
+                console.log(e);
+            } finally {
+                setNewPlaylist([]);
+                setPlaylistName("");
+            }
         }
-        setNewPlaylist([]);
-        setPlaylistName("");
-        setExportation(true);
     }
 
     return (
@@ -33,7 +45,7 @@ export default function Playlist({newPlaylist, setNewPlaylist, userPlaylists, se
                     e.preventDefault();
                     handleSubmit();
                 }}>
-                    <input type="text" name="playlist" maxLength="30" autoComplete="off" placeholder="Your playlist name" required 
+                    <input type="text" name="playlist" id="playlistInput" maxLength="30" autoComplete="off" placeholder="Your playlist name" required 
                     onChange={(e) => {
                         e.preventDefault();
                         setPlaylistName(e.target.value);
@@ -58,7 +70,7 @@ export default function Playlist({newPlaylist, setNewPlaylist, userPlaylists, se
             </section>
 
             <div id="spotifySide">
-                <Ipod connection={connection} userPlaylists={userPlaylists} exportation={exportation} setExportation={setExportation} setUserPlaylists={setUserPlaylists}/>
+                <Ipod connection={connection} userPlaylists={userPlaylists}/>
             </div>
             
         </>
