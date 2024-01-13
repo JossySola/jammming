@@ -32,6 +32,7 @@ export default function App() {
                         //refreshToken = setInterval(getRefreshToken, 3600);
                         const userPlaylists = await getUserPlaylists();
                         setUserPlaylists(userPlaylists);
+                        getCurrentUserProfile();
                     }
                 } catch (e) {
                     setConnection(false);
