@@ -34,9 +34,6 @@ export default async function requestAccessToken(code,state) {
 
             localStorage.setItem('access_token', response.access_token);
             localStorage.setItem('refresh_token', response.refresh_token);
-
-            console.log(localStorage.getItem('refresh_token') + " FROM ACCESS")
-            
             return response;
         } catch (err) {
             alertMsg(err.cause);
