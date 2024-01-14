@@ -27,12 +27,12 @@ export default function App() {
             (async () => {
                 try {
                     const response = await requestAccessToken(redirectedWithCode, redirectedWithState);
-                    setConnection(true);
                     if (response) {
                         //refreshToken = setInterval(getRefreshToken, 3600);
+                        setConnection(true);
+                        await getCurrentUserProfile();
                         const userPlaylists = await getUserPlaylists();
                         setUserPlaylists(userPlaylists);
-                        getCurrentUserProfile();
                     }
                 } catch (e) {
                     setConnection(false);
@@ -52,7 +52,10 @@ export default function App() {
                 }
             })()
         }
-        return clearInterval(refreshToken);
+        return () => {
+            window.localStorage.clear();
+            //clearInterval(refreshToken);
+        }
     }, []);
 
     return (
