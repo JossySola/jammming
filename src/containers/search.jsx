@@ -19,7 +19,6 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
         if(temporalSearchKeyword && redirectedWithCode && redirectedWithState) {
             (async () => {
                 try {
-                    window.localStorage.removeItem('standBySearch');
                     const inputBox = document.getElementById('search');
                     inputBox.setAttribute('value',temporalSearchKeyword);
                     setSearch(temporalSearchKeyword);
@@ -41,12 +40,13 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
                             />
                         })
                     })
+                    window.localStorage.removeItem('standBySearch');
                 } catch (e) {
                     console.log(e);
                 }
             })()
         }
-    }, [])
+    }, [connection])
 
     const specialChar = /[^A-Za-z\s]/.test(search);
     const num = /[0-9]/.test(search);
