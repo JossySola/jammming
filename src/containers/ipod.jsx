@@ -10,7 +10,7 @@ export default function Ipod({connection, userPlaylists}) {
                         {connection ? 
                             <><span className="connected">Connected</span><div className="spotifyDisconnected"></div></> : <><span className="disconnected">Disconnected</span><div className="spotifyDisconnected"></div></>}
                     </div>
-                    {connection ? userPlaylists.map((playlist) => {
+                    { connection && userPlaylists ? userPlaylists.map((playlist) => {
                         return (
                             <div key={playlist.id} id={playlist.id} className="ipodPlaylist">
                                 <p>{playlist.name}</p>
@@ -18,7 +18,7 @@ export default function Ipod({connection, userPlaylists}) {
                                 <p>Total tracks: {playlist.tracks.total}</p>    
                             </div>
                         )
-                    }) : null}
+                    }) : null }
                 </div>
                 <div id="ipodWheel"></div>
             </div>
