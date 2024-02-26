@@ -13,7 +13,8 @@ export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, p
                     width={album.images[1].width} 
                     height={album.images[1].height}
                     aria-label={`Album named ${album.name} by ${artists[0].name}`}
-                    /> 
+                    />
+                    <p className="preview">Song preview:</p>
                     <audio controls name="media">
                         <source src={preview} type="audio/mpeg" />
                         Your browser does not support the audio element.
@@ -21,6 +22,7 @@ export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, p
                     <span className="songName">{name}</span>
                     <span className="songAuthor">Artist: {artists[0].name}</span>
                     <span className="songAlbum">Album: {album.name}</span>
+                    <a href={`https://open.spotify.com/track/${id}`} target="_blank" className="openSpotify">Play on Spotify</a>
                 </div>
             </details>
         </>

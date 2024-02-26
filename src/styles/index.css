@@ -247,11 +247,22 @@
         display: block;
         width: fit-content;
     }
+    .preview {
+        font-style: italic;
+        color: #0866ff;
+        margin: 0px;
+        padding: 0px;
+    }
     .songAuthor {
         color: #9b9999;
+        font-weight: bold;
     }
     .songAlbum {
         color: #9b9999;
+        font-weight: bold;
+    }
+    .songName {
+        font-weight: bold;
     }
     .spotify {
         background-image: url(./Spotify.svg);
@@ -530,15 +541,26 @@
         display: block;
         width: fit-content;
     }
+    .preview {
+        font-style: italic;
+        color: #0866ff;
+        margin: 0px;
+        padding: 0px;
+    }
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
     }
     .songAuthor {
         color: #9b9999;
+        font-weight: bold;
     }
     .songAlbum {
         color: #9b9999;
+        font-weight: bold;
+    }
+    .songName {
+        font-weight: bold;
     }
     .spotify {
         background-image: url(./Spotify.svg);
@@ -814,11 +836,22 @@
         display: block;
         width: fit-content;
     }
+    .preview {
+        font-style: italic;
+        color: #0866ff;
+        margin: 0px;
+        padding: 0px;
+    }
     .songAuthor {
         color: #9b9999;
+        font-weight: bold;
     }
     .songAlbum {
         color: #9b9999;
+        font-weight: bold;
+    }
+    .songName {
+        font-weight: bold;
     }
     .spotify {
         background-image: url(./Spotify.svg);

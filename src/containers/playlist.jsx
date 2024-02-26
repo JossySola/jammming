@@ -51,7 +51,6 @@ export default function Playlist({newPlaylist, setNewPlaylist, userPlaylists, se
                         setPlaylistName(e.target.value);
                     }}/>
                     <button type="submit">Export</button>
-                    <a href="https://open.spotify.com/" target="_blank" className="openSpotify">Open Spotify</a>
                 </form>
                 {
                     newPlaylist ? newPlaylist.map((song) => {
