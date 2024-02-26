@@ -15,7 +15,7 @@ export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, p
                     aria-label={`Album named ${album.name} by ${artists[0].name}`}
                     />
                     <p className="preview">Song preview:</p>
-                    <audio controls name="media">
+                    <audio controls name="media" controlsList="nodownload nofullscreen noremoteplayback">
                         <source src={preview} type="audio/mpeg" />
                         Your browser does not support the audio element.
                     </audio>
