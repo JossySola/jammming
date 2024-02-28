@@ -9,6 +9,7 @@ import getCurrentUserProfile from "./containers/scripts/user/getUserProfile.js";
 import getRefreshToken from "./containers/scripts/refresh/refreshToken.js";
 // ***********************************************
 import alert from './styles/alert.svg';
+import spotify from './styles/logo.svg';
 
 export default function App() {
     const [newPlaylist, setNewPlaylist] = useState([]);
@@ -63,7 +64,7 @@ export default function App() {
             <h1>Jammming.</h1>
 
             <div id="poweredWithSpotify">
-                <span>Powered with</span><div alt="Spotify logo" className="spotify"/><span style={{color: '#1ed760ff', margin: 0, padding: 0, fontSize: "0.8rem"}}>®</span>
+                <span>Powered with</span><img alt="Spotify logo" className="spotify" src={spotify}/><span style={{color: '#1ed760ff', margin: "0.3rem", padding: 0, fontSize: "0.9rem"}}>®</span>
             </div>
             
             {redirectedWithError ? <p className="error">The Spotify authorization is required to use its features.<img alt="alert icon" src={alert}/></p> : null}
