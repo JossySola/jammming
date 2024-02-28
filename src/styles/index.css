@@ -78,6 +78,7 @@
         flex-flow: row wrap;
         align-items: center;
         justify-content: space-between;
+        text-align: left;
     }
     /*---------------------------- ID */
     #grid {
@@ -208,7 +209,13 @@
         padding: 0;
     }
     /*---------------------------- CLASSES */
-    .addRemove {
+    .add {
+        color: #0866ff;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 0;
+    }
+    .remove {
         color: #0866ff;
         font-size: 1.5rem;
         font-weight: bold;
@@ -265,12 +272,8 @@
         font-weight: bold;
     }
     .spotify {
-        background-image: url(./Spotify.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        width: 102px;
-        height: 60px;
+        width: 132px;
+        height: 90px;
         position: relative;
         padding: 0;
         margin: 0;
@@ -389,6 +392,7 @@
         flex-flow: row wrap;
         align-items: center;
         justify-content: space-between;
+        text-align: left;
     }
     /*---------------------------- ID */
     #grid {
@@ -507,7 +511,13 @@
         margin: 0;
     }
     /*---------------------------- CLASSES */
-    .addRemove {
+    .add {
+        color: #0866ff;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 0;
+    }
+    .remove {
         color: #0866ff;
         font-size: 1.5rem;
         font-weight: bold;
@@ -563,12 +573,8 @@
         font-weight: bold;
     }
     .spotify {
-        background-image: url(./Spotify.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        width: 102px;
-        height: 60px;
+        width: 132px;
+        height: 90px;
         position: relative;
         padding: 0;
         margin: 0;
@@ -675,6 +681,9 @@
 
     section {
         background-color: rgb(185, 255, 127);
+    }
+    summary {
+        text-align: left;
     }
     /*---------------------------- ID */
     #grid {
@@ -854,12 +863,8 @@
         font-weight: bold;
     }
     .spotify {
-        background-image: url(./Spotify.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        width: 102px;
-        height: 60px;
+        width: 132px;
+        height: 90px;
         position: relative;
         padding: 0;
         margin: 0;
