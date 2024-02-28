@@ -25,7 +25,7 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
                     const response = await searchForItem(temporalSearchKeyword);
                     const tracks = response.tracks.items;
                     setSongs(() => {
-                        return tracks.map((obj) => {
+                        const t = tracks.map((obj) => {
                             return <Song 
                             btn="add" 
                             setNewPlaylist={setNewPlaylist} 
@@ -37,8 +37,8 @@ export default function Search({newPlaylist, setNewPlaylist, connection}) {
                             album={obj.album} 
                             artists={obj.artists}
                             preview={obj.preview_url}
-                            />
-                        })
+                        />});
+                        return [t, <a href={`https://open.spotify.com/search/${search}/tracks`} target="_blank" className="openSpotify">Load More on Spotify</a>]
                     })
                     window.localStorage.removeItem('standBySearch');
                 } catch (e) {
