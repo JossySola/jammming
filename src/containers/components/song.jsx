@@ -1,12 +1,17 @@
 import React from "react";
 import Add from "./add.jsx";
 import Remove from "./remove.jsx";
+import icon from "../../styles/Spotify_Icon_RGB_Green.png";
 
 export default function Song({btn, uri, setNewPlaylist, newPlaylist, id, name, preview, album, artists}) {
     return (
         <>
             <details>
-                <summary>{name}{btn === "add" ? <Add id={id} name={name} uri={uri} preview={preview} album={album} artists={artists} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/> : <Remove id={id} uri={uri} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/>}</summary>
+                <summary>
+                    <img src={icon} width="50px" height="50px"/>
+                    {name}
+                    {btn === "add" ? <Add id={id} name={name} uri={uri} preview={preview} album={album} artists={artists} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/> : <Remove id={id} uri={uri} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist}/>}
+                </summary>
                 <div className="track">
                     <img 
                     src={album.images[1].url} 
