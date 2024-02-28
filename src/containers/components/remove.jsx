@@ -6,7 +6,7 @@ export default function Remove({id, newPlaylist, setNewPlaylist}) {
     }
 
     return (
-        <button alt="Remove button" className="addRemove" onClick={(e) => {
+        <button alt="Remove button" className="remove" onClick={(e) => {
             e.preventDefault;
             handleRemove()
         }}>Remove</button>

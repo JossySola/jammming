@@ -23,7 +23,7 @@ export default function Add(
     }
     
     return (
-        <button alt="Add button" className="addRemove" onClick={(e) => {
+        <button alt="Add button" className="add" onClick={(e) => {
             e.preventDefault;
             handleClick();
         }}>+</button>
