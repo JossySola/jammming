@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jammming/static/css/main.9ad05767.css",
-    "main.js": "/jammming/static/js/main.cafe6dc2.js",
+    "main.js": "/jammming/static/js/main.bf46d4e0.js",
     "static/media/Spotify_Icon_RGB_Green.png": "/jammming/static/media/Spotify_Icon_RGB_Green.cd66b8f63f6566194c7e.png",
     "static/media/logo.svg": "/jammming/static/media/logo.45b671cb46d0e95b501a5acc6654013e.svg",
     "static/media/wheel.svg": "/jammming/static/media/wheel.a4e6e7cca13dd095b226.svg",
@@ -10,10 +10,10 @@
     "static/media/iconscreen.svg": "/jammming/static/media/iconscreen.b500b1299dd5fe3d114e.svg",
     "index.html": "/jammming/index.html",
     "main.9ad05767.css.map": "/jammming/static/css/main.9ad05767.css.map",
-    "main.cafe6dc2.js.map": "/jammming/static/js/main.cafe6dc2.js.map"
+    "main.bf46d4e0.js.map": "/jammming/static/js/main.bf46d4e0.js.map"
   },
   "entrypoints": [
     "static/css/main.9ad05767.css",
-    "static/js/main.cafe6dc2.js"
+    "static/js/main.bf46d4e0.js"
   ]
 }
