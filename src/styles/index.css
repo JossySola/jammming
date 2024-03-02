@@ -1,3 +1,16 @@
+@keyframes appear {
+    0% {padding: 0.5rem; margin: 0.5rem;}
+    25% {padding: 1rem; margin: 1rem;}
+    50% {padding: 0.5rem; margin: 0.5rem;}
+    75% {padding: 0.8rem; margin: 0.8rem;}
+    100% {padding: 0.5rem; margin: 0.5rem;}
+}
+
+@keyframes new {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 @media only screen and (max-width: 850px){
     * {
         font-size: 3.5vw;
@@ -29,6 +42,12 @@
         justify-content: center;
         align-items: center;
         width: 90%;
+        animation-name: appear;
+        animation-duration: 0.8s;
+        transition: height 0.5s;
+    }
+    details[open] {
+        transition: height 0.5s;
     }
     details summary {
         cursor: pointer;
@@ -244,6 +263,8 @@
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
+        animation-name: new;
+        animation-duration: 1s;
     }
     .openSpotify {
         text-decoration: none;
@@ -343,6 +364,12 @@
         justify-content: center;
         align-items: center;
         width: 90%;
+        animation-name: appear;
+        animation-duration: 0.8s;
+        transition: height 0.5s;
+    }
+    details[open] {
+        transition: height 0.5s;
     }
     details summary {
         cursor: pointer;
@@ -560,6 +587,8 @@
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
+        animation-name: new;
+        animation-duration: 1s;
     }
     .songAuthor {
         color: #9b9999;
@@ -639,6 +668,12 @@
         justify-content: center;
         align-items: center;
         width: 90%;
+        animation-name: appear;
+        animation-duration: 0.8s;
+        transition: height 0.5s;
+    }
+    details[open] {
+        transition: height 0.5s;
     }
     details summary {
         cursor: pointer;
@@ -835,6 +870,8 @@
     .ipodPlaylist {
         background-color: #3d3d3c;
         color: #aca8a5;
+        animation-name: new;
+        animation-duration: 1s;
     }
     .openSpotify {
         text-decoration: none;
