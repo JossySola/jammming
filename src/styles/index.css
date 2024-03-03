@@ -96,8 +96,12 @@
         font-size: 1.3rem;
         flex-flow: row wrap;
         align-items: center;
-        justify-content: space-between;
+        justify-content: left;
         text-align: left;
+    }
+    summary img {
+        width: 32px;
+        height: 32px;
     }
     /*---------------------------- ID */
     #grid {
